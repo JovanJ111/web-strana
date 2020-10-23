@@ -4,23 +4,30 @@
         <meta charset = "utf-8">
         <title>Interests</title>
         <style type = "text/css">
-        a:visited
+        html, body { height: 100%; width: 100%; margin: 0; }
+        a:visited{color:indigo;}
+        a:link{color:black;}
+        summary.golemo{font-size: 150%;}
+        div.third
         {
-            color:indigo;
-            line-height:650%;
-            font-size: 150%;
+            float:left;
+            width: 10%;
+            height: 100%;
         }
-        a:link
+        div.slika
         {
-            color:black;
-            line-height:650%;
-            font-size: 150%;
+            float: left;
+            /* overflow: hidden; */
+            background-color:burlywood;
+            width: 76.4%;
+            height: 100%;
         }
         div.back
         {
             float:left;
             width: 10%;
             height: 100%;
+            font-size: 1vw;
             text-align: center;
             background: -webkit-radial-gradient(center, burlywood, peru);
             background: -moz-radial-gradient(center, burlywood, peru);
@@ -32,11 +39,23 @@
 
     <body>
         <div class = "back"><h1>Navigation:</h1>
-            <a href = "homepage.html">Homepga</a><br>
+            <a href = "homepage.html">Homepage</a><br>
             <a href = "galerija.html">Gallery</a><br>
             <a href = "blog.html">Blog</a><br>
             <a href = "anketa.html">Feedback</a><br>
             <a href = "kontakt.html">Contact</a><br>
+        </div>
+        <div class = "slika">
+            <details >gdfgdfgdfg
+                <summary class = "golemo">Movies</summary>
+            </details>
+       </div>
+
+        <div class = "third">
+            <a href = "spam ad.html">
+                <img src = "loshi ads.jpg" height ="100%" widht = "10%"
+                alt = "Ads are not available.">
+            </a>
         </div>
     </body>
 </html>
