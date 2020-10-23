@@ -3,6 +3,7 @@
         <meta charset = "utf-8">
         <title>Jovan World</title>
         <style type = "text/css">
+        img.slika{float:left;}
         a:visited 
         {
             color:indigo;
@@ -16,23 +17,18 @@
             line-height:650%;
             font-size: 150%;
         }
-        div.third
-        {
-            float:left;
-        }
+        div.third{float:left;}
         div.slika
         {
             float: left;
             overflow: hidden;
-            padding-left: 2%;
-            background-color: blue;
-            width: 74.3%;
+            background-color:burlywood;
+            width: 76.3%;
             height: 100%;
         }
         div.back
         {
             float:left;
-            display:inline-block;
             width: 10%;
             height: 100%;
             text-align: center;
@@ -52,13 +48,24 @@
             <a href = "anketa.html">Feedback</a><br>
             <a href = "kontakt.html">Contact</a><br>
         </div>
+
         <div class = "slika">
-            <img src = "jas.jpg" width ="250em" height ="250em"
-            alt = "Fali slika">        
+            <img class ="prva" src = "jas.jpg" width ="250em" height ="250em"
+            alt = "Fali slika" ALIGN="left">
+                <details>
+                    <summary>Poteklo</summary>
+                    <p>
+                        Roden sum vo Bitola.
+                    </p>
+                </details>
         </div>
+
         <div class = "third">
-            <img src = "loshi ads.jpg" height = "100%" widht = "10%"
-            alt = "Ads are not available.">
+            <a href = "spam ad.html">
+                <img src = "loshi ads.jpg" height = "100%" widht = "10%"
+                alt = "Ads are not available.">
+            </a>
         </div>
+
     </body>
 </html>
