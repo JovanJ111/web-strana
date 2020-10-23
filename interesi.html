@@ -8,6 +8,15 @@
         a:visited{color:indigo;}
         a:link{color:black;}
         summary.golemo{font-size: 150%;}
+        @keyframes blink
+        {
+            0% {opacity:1;}
+            50% {opacity:0.2;}
+            100% {opacity:1;}
+        }
+        img.blink{
+            animation: blink normal 2s infinite ease-in-out;
+        }
         div.third
         {
             float:left;
@@ -59,7 +68,7 @@
 
         <div class = "third">
             <a href = "spam ad.html">
-                <img src = "loshi ads.jpg" height ="100%" widht = "10%"
+                <img class ="blink" src = "loshi ads.jpg" height ="100%" widht = "10%"
                 alt = "Ads are not available.">
             </a>
         </div>
