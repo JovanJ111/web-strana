@@ -16,8 +16,23 @@
             line-height:650%;
             font-size: 150%;
         }
-        div
+        div.third
         {
+            float:left;
+        }
+        div.slika
+        {
+            float: left;
+            overflow: hidden;
+            padding-left: 2%;
+            background-color: blue;
+            width: 74.3%;
+            height: 100%;
+        }
+        div.back
+        {
+            float:left;
+            display:inline-block;
             width: 10%;
             height: 100%;
             text-align: center;
@@ -30,12 +45,20 @@
     </head>
 
     <body>
-        <div><h1>Navigation:</h1>
-            <a href = "interesi.html">Interesi</a><br>
-            <a href = "galerija.html">Galerija</a><br>
+        <div class = "back"><h1>Navigation:</h1>
+            <a href = "interesi.html">Interests</a><br>
+            <a href = "galerija.html">Gallery</a><br>
             <a href = "blog.html">Blog</a><br>
-            <a href = "anketa.html">Anketa</a><br>
-            <a href = "kontakt.html">Kontakt</a><br>        
+            <a href = "anketa.html">Feedback</a><br>
+            <a href = "kontakt.html">Contact</a><br>
+        </div>
+        <div class = "slika">
+            <img src = "jas.jpg" width ="250em" height ="250em"
+            alt = "Fali slika">        
+        </div>
+        <div class = "third">
+            <img src = "loshi ads.jpg" height = "100%" widht = "10%"
+            alt = "Ads are not available.">
         </div>
     </body>
 </html>
