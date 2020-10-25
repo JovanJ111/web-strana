@@ -2,42 +2,74 @@
 <html>
     <head>
         <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Interests</title>
         <style type = "text/css">
         html, body { height: 100%; width: 100%; margin: 0; }
         a:visited{color:indigo;}
         a:link{color:black;}
-        summary.golemo{font-size: 150%;}
+        .wrap{
+            position: relative;
+            left: 20px;
+            top: 20px;
+            overflow:auto;
+            max-height: 275px;
+        }
+        .det{
+            position: relative;
+            left: 20px;
+        }
+        summary.golemo
+        {
+            font-size: 150%;
+            padding: 2px 10px;
+            width: 15em;
+            background-color: #ddd;
+            border: 1px solid black;
+            box-shadow: 3px 0px 4px black;
+            cursor: pointer;
+        }
+        summary.pad
+        {
+            padding: 2px 4px;
+            width: 15em;
+            background-color: cadetblue;
+            border: 2px solid black;
+        }
         @keyframes blink
         {
             0% {opacity:1;}
-            50% {opacity:0.2;}
+            50% {opacity:0.5;}
             100% {opacity:1;}
         }
-        img.blink{
-            animation: blink normal 2s infinite ease-in-out;
-        }
+        img.blink{animation: blink normal 2s infinite ease-in-out;}
         div.third
         {
-            float:left;
+            position:relative;
+            top: -20px;
+            float: left;
             width: 10%;
             height: 100%;
         }
         div.slika
         {
             float: left;
-            /* overflow: hidden; */
             background-color:burlywood;
             width: 76.4%;
             height: 100%;
+        }
+        li
+        {
+            font-size: 120%;
         }
         div.back
         {
             float:left;
             width: 10%;
-            height: 100%;
+            height: 99.5%;
             font-size: 1vw;
             text-align: center;
+            border:solid rgb(255, 217, 1);
             background: -webkit-radial-gradient(center, burlywood, peru);
             background: -moz-radial-gradient(center, burlywood, peru);
             background: radial-gradient(center, burlywood, peru);
@@ -54,20 +86,118 @@
             <a href = "kontakt.html">Contact</a><br>
         </div>
         <div class = "slika">
-            <details >gdfgdfgdfg
+            <details class="wrap">
                 <summary class = "golemo">Movies</summary>
+                <ol>
+                    <li>
+                        <details><summary class ="pad">The King</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/svVykTznk9Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN="left"></iframe>
+                        &emsp;Young Henry V encounters deceit, war and treachery<br>
+                        &emsp;after becoming King of England in the 15th century,<br>
+                        &emsp;in the aftermath of his brother's death.<br><br>
+                    <br><br><br><br><br><br>
+                    </details></li>
+                    <li>
+                        <details><summary class ="pad">The Devil All The Time</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/EIzazUv2gtI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN="left"></iframe>
+                        &emsp;A young man is devoted to protecting<br>
+                        &emsp;his loved ones in a town full of<br>
+                        &emsp;corruption and sinister characters.
+                    <br><br><br><br><br><br><br><br>
+                    </details></li>
+                    <li>
+                        <details><summary class ="pad">Seven Psychopaths</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/jsHR77oQKEY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN="left"></iframe>
+                        &emsp;Boozy writer Marty (Colin Farrell) is a man in search of a screenplay.<br>
+                        &emsp;He has a catchy title but no story to go along with it. Marty has a couple<br>
+                        &emsp;of oddball buddies, Hans (Christopher Walken) and Billy (Sam Rockwell),<br>
+                        &emsp;who make a living by kidnapping rich people's dogs, then returning them and<br>
+                        &emsp;collecting the reward. However this time, the fur flies when Hans and Billy<br>
+                        &emsp;kidnap the beloved pooch of a gangster (Woody Harrelson), and Marty uses the<br>
+                        &emsp;ensuing events as fodder for his screenplay.<br>
+                    <br><br>
+                </ol>
+            </details><br>
+            <details class = "wrap">
+                <summary class = "golemo">TV Shows</summary>
+                <ol>
+                    <li>
+                        <details><summary class ="pad">Community</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/C4W4L9TLJa8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN = "left"></iframe>
+                        &emsp;A former lawyer attends a community college when it is<br>
+                        &emsp;discovered he faked his Bachelor's degree. In an attempt<br>
+                        &emsp;to get with a student in his Spanish class,<br>
+                        &emsp;he forms a Spanish study group. To his surprise,<br>
+                        &emsp;more people attend the study group and the group<br>
+                        &emsp;of misfits form an unlikely community.<br>
+                    <br><br><br><br>
+                    </details></li>
+                    <li>
+                        <details><summary class ="pad">Dark</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/rrwycJ08PSA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN = "left"></iframe>
+                        &emsp;"Dark" is a series about factions of people,<br>
+                        &emsp; most of whom are related to one another through<br>
+                        &emsp;generations of small-town links, fighting for control<br>
+                        &emsp;of time travel. In the town of Winden, Germany,<br>
+                        &emsp;there are several families who are all interconnected<br>
+                        &emsp;thanks to a 33-year-cycle of trauma.<br>
+                    <br><br><br><br>
+                    </details></li>
+                    <li>
+                        <details><summary class ="pad">Love Death + Robots</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/wUFwunMKa4E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN="left"></iframe>
+                        &emsp;The animated series consists of 18 stand-alone episodes,<br>
+                        &emsp;all under 20 minutes long, and all produced<br>
+                        &emsp;by different casts and crews, though some episodes may<br>
+                        &emsp;share certain crew members. The series title refers<br>
+                        &emsp;to each episode's thematic connection to the three<br>
+                        &emsp;aforementioned subjects, though not every episode<br>
+                        &emsp;contains all three elements.<br>
+                    <br><br>
+                </ol>
+            </details><br>
+            <details class = "wrap">
+                <summary class = "golemo">Video Games</summary>
+                <ol>
+                    <li>
+                        <details><summary class ="pad">Vermintide 2</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/GfYBSWAOcZs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN ="left"></iframe>
+                        &emsp;Warhammer: Vermintide 2 is a co-op-focused action game<br>
+                        &emsp;experienced from a first-person perspective.<br>
+                        &emsp;Set in the Warhammer Fantasy fictional universe,<br>
+                        &emsp;players battle cooperatively against the Chaos army<br>
+                        &emsp;and a race of rat-men known as the Skaven. The game features<br>
+                        &emsp;five different characters to play as. These characters are divided<br>
+                        &emsp;into 15 different careers, each with a unique set of skills and abilities.<br>
+                        &emsp;After players complete missions, they receive rewards through a randomised loot system.<br>
+                    <br><br>
+                    </details></li>
+                    <li>
+                        <details><summary class ="pad">Warhammer40K: Dawn of War</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/hCO2zehMcU4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN = "left"></iframe>
+                        &emsp;Prepare yourself for the grim, dark future of the 41st millennium,<br>
+                        &emsp;where alien races battle mankind for galactic domination<br>
+                        &emsp;in a universe of unending war. Personalize your armies with a revolutionary<br>
+                        &emsp;unit customization tool that gives you the ability to choose your armies insignias,<br>
+                        &emsp;banners, squad colors and names.<br>
+                    <br><br><br><br><br>
+                    </details></li>
+                    <li>
+                        <details><summary class ="pad">Mass Effect</summary><br>
+                        <iframe width="360" height="215" src="https://www.youtube.com/embed/PEwEjl4Khkk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ALIGN = "left"></iframe>
+                        &emsp;As Commander Shepard, you lead an elite squad on a heroic,<br>
+                        &emsp;action-packed adventure throughout the galaxy. Discover the imminent<br>
+                        &emsp;danger from an ancient threat and battle the traitorous Saren<br>
+                        &emsp;and his deadly army to save civilization. The fate of all life depends<br>
+                        &emsp;on your actions!<br>
+                    <br><br>
+                </ol>
             </details>
-            <details class = "slika">
-                Video games
-            </details>
-            <details class = "slika">
-                Warhammer 40K
-            </details>
-       </div>
+       </div><br>
 
         <div class = "third">
-            <a href = "spam ad.html">
-                <img class ="blink" src = "loshi ads.jpg" height ="100%" widht = "10%"
+            <a href = "spam ad.html" target="_blank">
+                <img class ="blink" src = "loshi ads.jpg" style = "width:auto; height:100%;"
                 alt = "Ads are not available.">
             </a>
         </div>
