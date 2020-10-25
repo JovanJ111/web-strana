@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Gallery</title>
+        <style type = "text/css">
+        html, body { height: 100%; width: 100%; margin: 0; }
+        img.prva{float:left;}
+        a:visited{color:indigo;}
+        a:link{color:black;}
+        @keyframes blink
+        {
+            0% {opacity:1;}
+            50% {opacity:0.5;}
+            100% {opacity:1;}
+        }
+        img.blink{animation: blink normal 2s infinite ease-in-out;}
+        div.third
+        {
+            float:left;
+            width: 10%;
+            height: 100%;
+            position: relative;
+            top:-20px; 
+        }
+        div.slika
+        {
+            float: left;
+            overflow: hidden;
+            background-color:burlywood;
+            width: 76.5%;
+            height: 100%;
+        }
+        div.back
+        {
+            float:left;
+            width:10%;
+            height:100%;
+            display: table-cell;
+            text-align: center;
+            font-size: 1vw;
+            border:solid rgb(255, 217, 1);
+            background: -webkit-radial-gradient(center, burlywood, peru);
+            background: -moz-radial-gradient(center, burlywood, peru);
+            background: radial-gradient(center, burlywood, peru);
+        }
+        form{display: table;}
+        p.yes{display: table-row;}
+        label{display: table-cell; }
+        img{display: table-cell;
+            position: relative;
+            top:20px; 
+        }
+        input{display: table-cell;
+        width:245px;}
+        button{display: table-cell;}
+        textarea{display: table-cell;}
+        button.d{display:table-cell;
+        position: relative;
+        left:147px;}
+
+        </style>
+    </head>
+
+    <body>
+        <div class = "back"><h1>Navigation:</h1>
+            <a href = "homepage.html">Homepage</a><br>
+            <a href = "interesi.html">Interests</a><br>
+            <a href = "blog.html">Blog</a><br>
+            <a href = "kontakt.html">Contact</a><br>
+        </div>
+
+        <div class = "slika">
+            <form>
+                <p class = "yes">
+                    <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
+                    <img src ="nat.jpg" height="250px" width = "250px">
+                    <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
+                    <img src = "sushi.jpg" height=250px width=250px>
+                    <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
+                    <img src="jas.jpg" height="250px" width="250px">
+                </p><br><br>
+                <p class="yes">
+                    <label>&emsp;</label>
+                    <button type="button" onclick="alert('You liked the pic :)')">Like!</button>
+                    <button class ="d" type="button" onclick="alert('You disliked the pic :(')">Dislike!</button>
+                    <label>&emsp;</label>
+                    <button type="button" onclick="alert('You liked the pic :)')">Like!</button>
+                    <button class ="d" type="button" onclick="alert('You disliked the pic :(')">Dislike!</button>
+                    <label>&emsp;</label>
+                    <button type="button" onclick="alert('You liked the pic :)')">Like!</button>
+                    <button class ="d" type="button" onclick="alert('You disliked the pic :(')">Dislike!</button>
+                </p><br>
+                <p class="yes">
+                    <label>&emsp;</label>
+                    Leave a comment!
+                    <label>&emsp;</label>
+                    Leave a comment!
+                    <label>&emsp;</label>
+                    Leave a comment!
+                </p>
+                <p class="yes">
+                    <label>&emsp;</label>
+                    <input type="text">
+                    <label>&emsp;</label>
+                    <input type="text">
+                    <label>&emsp;</label>
+                    <input type="text">
+                </p><br><br>
+                <p class = "yes">
+                    <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
+                    <img src ="steam.jpg" height="250px" width = "250px">
+                    <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
+                    <img src = "BoW.png" height=250px width=250px>
+                    <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
+                    <img src="advt.png" height="250px" width="250px">
+                </p><br><br>
+                <p class="yes">
+                    <label>&emsp;</label>
+                    <button type="button" onclick="alert('You liked the pic :)')">Like!</button>
+                    <button class ="d" type="button" onclick="alert('You disliked the pic :(')">Dislike!</button>
+                    <label>&emsp;</label>
+                    <button type="button" onclick="alert('You liked the pic :)')">Like!</button>
+                    <button class ="d" type="button" onclick="alert('You disliked the pic :(')">Dislike!</button>
+                    <label>&emsp;</label>
+                    <button type="button" onclick="alert('You liked the pic :)')">Like!</button>
+                    <button class ="d" type="button" onclick="alert('You disliked the pic :(')">Dislike!</button>
+                </p><br>
+                <p class="yes">
+                    <label>&emsp;</label>
+                    Leave a comment!
+                    <label>&emsp;</label>
+                    Leave a comment!
+                    <label>&emsp;</label>
+                    Leave a comment!
+                </p>
+                <p class="yes">
+                    <label>&emsp;</label>
+                    <input type="text">
+                    <label>&emsp;</label>
+                    <input type="text">
+                    <label>&emsp;</label>
+                    <input type="text">
+                </p>
+            </form>
+        </div>
+
+        <div class = "third">
+            <a href = "spam ad.html" target="_blank">
+                <img class ="blink" src = "loshi ads.jpg" style = "width:auto; height:100%;"
+                alt = "Ads are not available.">
+            </a>
+        </div>
+
+    </body>
+</html>

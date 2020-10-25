@@ -12,6 +12,13 @@
             position: relative;
             left: 30px;
         }
+        @keyframes blink
+        {
+            0% {opacity:1;}
+            50% {opacity:0.5;}
+            100% {opacity:1;}
+        }
+        img.blink{animation: blink normal 2s infinite ease-in-out;}
         p.yesss
         {
             font-weight: bold;
