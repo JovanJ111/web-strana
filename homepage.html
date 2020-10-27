@@ -9,6 +9,22 @@
         img.prva{float:left;}
         a:visited{color:indigo;}
         a:link{color:black;}
+        .poz{position: relative;
+        top:50px;
+        font-size: 130%;}
+        .poz1{position: relative;
+        top:130px;
+        font-size: 130%;}
+        .poz2{position: relative;
+        top:210px;
+        font-size: 130%;}
+        .poz3{position: relative;
+        top:290px;
+        font-size: 130%;}
+        input{width:100px;
+        height:50px;
+        font-size: 110%;
+        background-color: lightskyblue;}
         @keyframes blink
         {
             0% {opacity:1;}
@@ -20,21 +36,21 @@
         {
             float:left;
             width: 10%;
-            height: 100%;
+            height: 125%;
         }
         div.slika
         {
             float: left;
-            overflow: hidden;
+            /* overflow: hidden; */
             background-color:burlywood;
             width: 76.5%;
-            height: 100%;
+            height: 125%;
         }
         div.back
         {
             float:left;
             width:10%;
-            height:100%;
+            height:124%;
             display: table-cell;
             text-align: center;
             font-size: 1vw;
@@ -68,29 +84,45 @@
         font-size: 110%;}
         .push{position: relative;
         left:500px;}
+        h1{text-align: center;}
 
         </style>
     </head>
 
     <body>
         <div class = "back"><h1>Navigation:</h1>
-            <a href = "interesi.html">Interests</a><br>
-            <a href = "galerija.html">Gallery</a><br>
-            <a href = "blog.html">Blog</a><br>
-            <a href = "kontakt.html">Contact</a><br>
+            <!-- <a class ="poz" href = "interesi.html">Interests</a><br>
+            <a class ="poz1" href = "galerija.html">Gallery</a><br>
+            <a class ="poz2" href = "blog.html">Blog</a><br>
+            <a class ="poz3" href = "kontakt.html">Contact</a><br> -->
+            <form class="poz" action="interesi.html">
+                <input type="submit" value="Interests" />
+            </form>
+            <form class="poz1" action="galerija.html">
+                <input type="submit" value="Gallery" />
+            </form>
+            <form class="poz2" action="blog.html">
+                <input type="submit" value="Blog" />
+            </form>
+            <form class="poz3" action="kontakt.html">
+                <input type="submit" value="Contact" />
+            </form>
         </div>
 
         <div class = "slika">
+            
             <img class ="prva" src = "jas.jpg" width ="250em" height ="250em"
-            alt = "Fali slika"> <h2 class="l1">Education</h2>
+            alt = "Fali slika">
+                <h1>I am Jovan Jovanovski and welcome to my website!</h1><br>
+                <h2 class="l1">Education</h2>
             <ul>
-                <li class ="l">High School: "SOU Josip Broz Tito" - Bitola</li><br>
+                <li class ="l">High School: "SOU Josip Broz Tito" - Bitola</li>
                 <li class ="l">Faculty of Electrical Engineering and Information Technology
                     <ul>
-                        <p class="l3">&emsp;Computer Hardware and Electroncs Engineer 4th Year</p>
+                        &emsp;Computer Hardware and Electroncs Engineer 4th Year
                     </ul></li>
-            </ul>
-            <br><br><br><br><br><h2 class="l">Work Experience</h2>
+            </ul><br>
+            <h2 class="l">Work Experience</h2>
             <ul>
                 <li class ="l1">Game Story Writer<br>
                     <ul>
@@ -119,7 +151,7 @@
             The common theme is war and how a group of people get around it.<br>
             Here is one of my stories.</p>
             <a href="A small spaceship's last mission.docx" download="A small spaceship's last mission">
-                <img class = "push" src="word.jpg" with="50px" height="50px">
+                <img class = "push" src="word.jpg" with="50px" height="50px" title="A Small Spaceship's Last Mission">
             </a>
         </div>
 

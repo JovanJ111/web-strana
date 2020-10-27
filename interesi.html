@@ -8,6 +8,18 @@
         html, body { height: 100%; width: 100%; margin: 0; }
         a:visited{color:indigo;}
         a:link{color:black;}
+        .poz{position: relative;
+        top:50px;
+        font-size: 130%;}
+        .poz1{position: relative;
+        top:130px;
+        font-size: 130%;}
+        .poz2{position: relative;
+        top:210px;
+        font-size: 130%;}
+        .poz3{position: relative;
+        top:290px;
+        font-size: 130%;}
         .wrap{
             position: relative;
             left: 20px;
@@ -36,6 +48,10 @@
             background-color: cadetblue;
             border: 2px solid black;
         }
+        input{width:140px;
+        height:50px;
+        font-size: 110%;
+        background-color:lightskyblue;}
         @keyframes blink
         {
             0% {opacity:1;}
@@ -49,14 +65,14 @@
             top: -20px;
             float: left;
             width: 10%;
-            height: 100%;
+            height: 135%;
         }
         div.slika
         {
             float: left;
             background-color:burlywood;
             width: 76.4%;
-            height: 100%;
+            height: 134.75%;
         }
         li
         {
@@ -66,7 +82,7 @@
         {
             float:left;
             width: 10%;
-            height: 99.5%;
+            height: 134%;
             font-size: 1vw;
             text-align: center;
             border:solid rgb(255, 217, 1);
@@ -74,18 +90,32 @@
             background: -moz-radial-gradient(center, burlywood, peru);
             background: radial-gradient(center, burlywood, peru);
         }
+        h1{text-align: center;}
         
         </style>
     </head>
 
     <body>
         <div class = "back"><h1>Navigation:</h1>
-            <a href = "homepage.html">Homepage</a><br>
-            <a href = "galerija.html">Gallery</a><br>
-            <a href = "blog.html">Blog</a><br>
-            <a href = "kontakt.html">Contact</a><br>
+            <form class="poz" action="homepage.html">
+                <input type="submit" value="Homepage" />
+            </form>
+            <form class="poz1" action="galerija.html">
+                <input type="submit" value="Gallery" />
+            </form>
+            <form class="poz2" action="blog.html">
+                <input type="submit" value="Blog" />
+            </form>
+            <form class="poz3" action="kontakt.html">
+                <input type="submit" value="Contact" />
+            </form>
+            <!-- <a class="poz" href = "homepage.html">Homepage</a><br>
+            <a class="poz1" href = "galerija.html">Gallery</a><br>
+            <a class="poz2" href = "blog.html">Blog</a><br>
+            <a class="poz3" href = "kontakt.html">Contact</a><br> -->
         </div>
         <div class = "slika">
+            <h1>Interests</h1>
             <details class="wrap">
                 <summary class = "golemo">Movies</summary>
                 <ol>
