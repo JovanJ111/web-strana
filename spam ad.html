@@ -4,6 +4,7 @@
         <meta charset = "utf-8">
         <title>Congratulations</title>
         <style type = "text/css">
+        a:visited{color:violet;}
         html, body { height: 100%; width: 100%; margin: 0;
         background-color: rgb(175, 7, 41);}
         p.cent
@@ -16,7 +17,7 @@
             font-size: 200%;
             font-weight: bolder;
             animation: blink 1s;
-            animation-iteration-count: 500;
+            animation-iteration-count: 1000;
         }
         p.cent2
         {
@@ -28,7 +29,7 @@
             font-size: 140%;
             font-weight: bolder;
             animation: blink 1s;
-            animation-iteration-count: 500;
+            animation-iteration-count: 1000;
         }
         @keyframes blink { 50% { border-color:  rgb(175, 7, 41); }  }
         .novo{font-size: 100%;}
@@ -43,11 +44,11 @@
         label { display: table-cell; }
         input { display: table-cell; }
         select{display: table-cell;}
-
         </style>
     </head>
 
-    <body>
+    <body onload="script();">
+        <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script><script>confetti.start(0, 75);</script>
         <p class = "cent">
             Congratulations you are our 100,000th visitor<br>
             and you just won a grand prize of 10 000$
@@ -59,21 +60,21 @@
         <form>
             <p class = "yes">
                 &emsp;&emsp;&emsp;<label for="a">First Name: </label>
-              <input id="a" type="text">
+              <input id="a" type="text" placeholder="John">
               <label for="a">Email: </label>
-              <input id="a" type="text">
+              <input id="a" type="text" placeholder="johnsmith@example.com">
             </p><br><br>
             <p class = "yes">
                 &emsp;&emsp;&emsp;<label for="b">Last Name: </label>
-              <input id="b" type="text">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <input id="b" type="text" placeholder="Smith">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
               <label for="b">Email password(we won't share it): </label>
-              <input id="b" type="text">
+              <input id="b" type="password">
             </p><br><br>
             <p class = "yes"> 
                 &emsp;&emsp;&emsp;<label>Male: </label>
-                <input type ="radio">
+                <input type ="radio" name="sex">
                 <label>Female: </label>
-                <input type ="radio">
+                <input type ="radio" name="sex">
             </p><br><br>
             <p class = "yes">
                 &emsp;&emsp;&emsp;<label>Age: </label>
@@ -83,66 +84,41 @@
             </p><br><br>
             <p class = "yes">
                 &emsp;&emsp;&emsp;<label for="a">Credit card number: </label>
-                <input type= "number">
+                <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="16" placeholder="xxxx xxxx xxxx xxxx">
                 <label>CVV: </label>
-                <input type = "number" size="4">
+                <input type = "tel" inputmode="numeric" maxlength="3" placeholder="xxx">
             </p><br><br>
             <p class = "yes">
                 &emsp;&emsp;&emsp;<label for="a">Month/Year Expire: </label>
-                    <select name = "expire">
+                    <select id="exp" name = "expire">
                         <option selected>--/--</option>
-                        <option>11/20</option>
-                        <option>12/20</option>
-                        <option>01/21</option>
-                        <option>02/21</option>
-                        <option>03/21</option>
-                        <option>04/21</option>
-                        <option>05/21</option>
-                        <option>06/21</option>
-                        <option>07/21</option>
-                        <option>08/21</option>
-                        <option>09/21</option>
-                        <option>10/21</option>
-                        <option>11/21</option>
-                        <option>12/21</option>
-                        <option>01/22</option>
-                        <option>02/22</option>
-                        <option>03/22</option>
-                        <option>04/22</option>
-                        <option>05/22</option>
-                        <option>06/22</option>
-                        <option>07/22</option>
-                        <option>08/22</option>
-                        <option>09/22</option>
-                        <option>10/22</option>
-                        <option>11/22</option>
-                        <option>12/22</option>
-                        <option>01/23</option>
-                        <option>02/23</option>
-                        <option>03/23</option>
-                        <option>04/23</option>
-                        <option>05/23</option>
-                        <option>06/23</option>
-                        <option>07/23</option>
-                        <option>08/23</option>
-                        <option>09/23</option>
-                        <option>10/23</option>
-                        <option>11/23</option>
-                        <option>12/23</option>
-                        <option>01/24</option>
-                        <option>02/24</option>
-                        <option>03/24</option>
-                        <option>04/24</option>
-                        <option>05/24</option>
-                        <option>06/24</option>
-                        <option>07/24</option>
-                        <option>08/24</option>
-                        <option>09/24</option>
-                        <option>10/24</option>
                     </select>
                     <label>Address on card: </label>
-                    <input type="text">
+                    <input type="text" placeholder="John Smith Street">
                 </p><br><br>
+                <script>
+                    var denes = new Date();
+                    var mm = denes.getMonth() + 1;
+                    var yy = denes.getUTCFullYear();
+
+                    for(var i = 0; i<48; ++i)
+                    {
+                        daySelect = document.getElementById('exp');
+                        myOption = document.createElement("option");
+                        myOption.text = mm + '/' + yy;
+                        myOption.value = i;
+                        daySelect.appendChild(myOption);
+                        if (mm == 12)
+                        {
+                            mm = 1;
+                            yy += 1;
+                        }
+                        else
+                        {
+                            mm += 1;
+                        }
+                    }
+                </script>
                 <p class = "yes">
                     &emsp;&emsp;&emsp;<label>I agree to the <a href="terms.html" target="_blank">Terms and conditions</a>.
                         <input type="checkbox">

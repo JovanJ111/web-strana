@@ -7,6 +7,22 @@
         html, body{height: 100%; width: 100%; margin: 0;}
         a:visited{color:indigo;}
         a:link{color:black;}
+        .poz{position: relative;
+        top:50px;
+        font-size: 130%;}
+        .poz1{position: relative;
+        top:130px;
+        font-size: 130%;}
+        .poz2{position: relative;
+        top:210px;
+        font-size: 130%;}
+        .poz3{position: relative;
+        top:290px;
+        font-size: 130%;}
+        input{width:140px;
+        height:50px;
+        font-size: 110%;
+        background-color:lightskyblue;}
         p.pad
         {
             position: relative;
@@ -43,7 +59,7 @@
         {
             float:left;
             width:10%;
-            height:100%;
+            height:99.8%;
             display: table-cell;
             text-align: center;
             font-size: 1vw;
@@ -57,10 +73,22 @@
 
     <body>
         <div class = "back"><h1>Navigation:</h1>
-            <a href = "homepage.html">Homepage</a><br>
-            <a href = "interesi.html">Interests</a><br>
-            <a href = "galerija.html">Gallery</a><br>
-            <a href = "blog.html">Blog</a><br>
+            <form class="poz" action="homepage.html">
+                <input type="submit" value="Homepage" />
+            </form>
+            <form class="poz1" action="galerija.html">
+                <input type="submit" value="Gallery" />
+            </form>
+            <form class="poz2" action="blog.html">
+                <input type="submit" value="Blog" />
+            </form>
+            <form class="poz3" action="interesi.html">
+                <input type="submit" value="Interests" />
+            </form>
+            <!-- <a class="poz" href = "homepage.html">Homepage</a><br>
+            <a class="poz1" href = "interesi.html">Interests</a><br>
+            <a class="poz2" href = "galerija.html">Gallery</a><br>
+            <a class="poz3" href = "blog.html">Blog</a><br> -->
         </div>
 
         <div class = "slika">
