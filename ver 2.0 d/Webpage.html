@@ -141,6 +141,10 @@
         }
         input.g{display: table-cell;
         width:245px;}
+        p.g2{display: table-cell;
+        width:245px;}
+        textarea.g{display: table-cell;
+        width:245px;}
         button.g1{display: table-cell;
         height:45px;
         width:45px;}
@@ -152,6 +156,14 @@
         position: relative;
         left: 19.5vh;
         font-size:110%;}
+        div.g2{
+            display:table-cell;
+            padding: 2px;
+            overflow:auto;
+            max-height: 10px;
+            max-width: 40px;
+            border: 3px solid black;
+        }
 
         /* blog */
         .wrapb{
@@ -204,6 +216,14 @@
                 
                 var buttons=document.getElementsByClassName("g1");
                 buttons[br-1].style.background="url('full.png')";   
+            }
+            //Comments
+            function komentar(com,pt){
+                var inputV=document.getElementById(com).value;
+                var post=document.getElementById(pt).value;
+                post= post + "<br>" + inputV;
+                // inputV = "<p class='g'>" + inputV + "</p>";
+                document.getElementById(pt).innerHTML=post;
             }
         </script>
     </head>
@@ -388,12 +408,20 @@
                 </p>
                 <p class="yes">
                     <label class="g">&emsp;</label>
-                    <input  class="g" type="text" placeholder="Leave a comment!">
+                    <input id="com1" class="g" type="text" placeholder="Leave a comment!" onclick="komentar('com1', 'pt1')">
                     <label class="g">&emsp;</label>
                     <input  class="g" type="text" placeholder="Leave a comment!">
                     <label class="g">&emsp;</label>
                     <input  class="g" type="text" placeholder="Leave a comment!">
-                </p><br><br>
+                </p><br>
+                <p class="yes">
+                    <label class="g">&emsp;</label>
+                    <div class="g2" id="pt1"></div>
+                    <label class="g">&emsp;</label>
+                    <div class="g2"></div>
+                    <label class="g">&emsp;</label>
+                    <div class="g2"></div>
+                </p><br>
                 <p class = "yes">
                     <label class="g">&emsp;&emsp;&emsp;&emsp;</label>
                     <img class="s" src ="steam.jpg" height="250px" width = "250px">

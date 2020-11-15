@@ -5,8 +5,29 @@
         <title>Congratulations</title>
         <style type = "text/css">
         a:visited{color:violet;}
-        html, body { height: 100%; width: 100%; margin: 0;
-        background-color: rgb(175, 7, 41);}
+        body { height: 100%; width: 100%; margin: 0;
+        /* background-color: rgb(175, 7, 41); */
+        /* background-image: url('cong.jpg');
+        background-repeat:no-repeat;
+        background-attachment: fixed;
+        background-size: 100%,100%;
+        position: absolute;
+        opacity: 0.5; */
+        }
+        body::after {
+        content: "";
+        background: url(cong.jpg);
+        opacity: 0.25;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100%,100%;   
+        }
         p.cent
         {
             text-align: center;
@@ -44,7 +65,45 @@
         label { display: table-cell; }
         input { display: table-cell; }
         select{display: table-cell;}
+        p.novo{display: inline;
+        color: red;}
         </style>
+
+        <script>
+            function check() {
+                var count = 0;
+                for (var i=1; i<9; i++)
+                {
+                    var x=document.getElementById("a"+i).value;
+                    if(x==null || x=="")
+                    {
+                        var curV = document.getElementById("b"+i).innerHTML;
+                        curV = curV + "<p class='novo'>*</p>";
+                        document.getElementById("b"+i).innerHTML=curV;
+                        count += 1;
+                    }
+                }
+                x=document.getElementById("exp").value;
+                if(x=="--/--")
+                {
+                    curV = document.getElementById("expire").innerHTML;
+                    curV = curV + "<p class='novo'>*</p>";
+                    document.getElementById("b"+i).innerHTML=curV;
+                    count += 1;
+                }
+                x=document.getElementById("ck").value;
+                if(!document.getElementById("ck").checked){
+                    count += 1;
+                    curV = document.getElementById("prov").innerHTML;
+                    curV = curV + "<p class='novo'>*</p>";
+                    document.getElementById("b"+i).innerHTML=curV;
+                }
+                if (count == 0)
+                {
+                    alert("CONGRATULATIONS!!!");
+                }
+            }
+        </script>
     </head>
 
     <body onload="script();">
@@ -59,16 +118,16 @@
         </p><br>
         <form>
             <p class = "yes">
-                &emsp;&emsp;&emsp;<label for="a">First Name: </label>
-              <input id="a" type="text" placeholder="John">
-              <label for="a">Email: </label>
-              <input id="a" type="text" placeholder="johnsmith@example.com">
+                &emsp;&emsp;&emsp;<label id="b1" for="a">First Name: </label>
+              <input id="a1" type="text" placeholder="John">
+              <label id="b2" for="a">Email: </label>
+              <input id="a2" type="text" placeholder="johnsmith@example.com">
             </p><br><br>
             <p class = "yes">
-                &emsp;&emsp;&emsp;<label for="b">Last Name: </label>
-              <input id="b" type="text" placeholder="Smith">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-              <label for="b">Email password(we won't share it): </label>
-              <input id="b" type="password">
+                &emsp;&emsp;&emsp;<label id="b3" for="b">Last Name: </label>
+              <input id="a3" type="text" placeholder="Smith">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <label id="b4" for="b">Email password(we won't share it): </label>
+              <input id="a4" type="password">
             </p><br><br>
             <p class = "yes"> 
                 &emsp;&emsp;&emsp;<label>Male: </label>
@@ -79,22 +138,22 @@
             <p class = "yes">
                 &emsp;&emsp;&emsp;<label>Age: </label>
                 18<input type ="range" required="True">100
-                <label>Date of birth: </label>
-                <input type="date">
+                <label id="b5">Date of birth: </label>
+                <input id="a5" type="date">
             </p><br><br>
             <p class = "yes">
-                &emsp;&emsp;&emsp;<label for="a">Credit card number: </label>
-                <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="16" placeholder="xxxx xxxx xxxx xxxx">
-                <label>CVV: </label>
-                <input type = "tel" inputmode="numeric" maxlength="3" placeholder="xxx">
+                &emsp;&emsp;&emsp;<label id="b6" for="a">Credit card number: </label>
+                <input id="a6" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="16" placeholder="xxxx xxxx xxxx xxxx">
+                <label id="b7">CVV: </label>
+                <input id="a7" type = "tel" inputmode="numeric" maxlength="3" placeholder="xxx">
             </p><br><br>
             <p class = "yes">
-                &emsp;&emsp;&emsp;<label for="a">Month/Year Expire: </label>
+                &emsp;&emsp;&emsp;<label id="expire" for="a">Month/Year Expire: </label>
                     <select id="exp" name = "expire">
                         <option selected>--/--</option>
                     </select>
-                    <label>Address on card: </label>
-                    <input type="text" placeholder="John Smith Street">
+                    <label id="b8">Address on card: </label>
+                    <input id="a8" type="text" placeholder="John Smith Street">
                 </p><br><br>
                 <script>
                     var denes = new Date();
@@ -120,13 +179,13 @@
                     }
                 </script>
                 <p class = "yes">
-                    &emsp;&emsp;&emsp;<label>I agree to the <a href="terms.html" target="_blank">Terms and conditions</a>.
-                        <input type="checkbox">
+                    &emsp;&emsp;&emsp;<label id="chek">I agree to the <a id="prov" href="terms.html" target="_blank">Terms and conditions</a>.
+                        <input id="ck" value="True" type="checkbox">
                     </label>
                 </p>
         </form><br><br>
         <p class = "yes">
-            &emsp;&emsp;&emsp;<input type = "submit" value="Submit">
+            &emsp;&emsp;&emsp;<button onclick="check()">Submit</button>
         </p>
     </body>
 </html>
