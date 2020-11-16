@@ -132,6 +132,7 @@
         h1{text-align: center;}
 
         /* galerija */
+        button.kom{display: table-cell;}
         form.g{display:table;}
         p.yes{display: table-row;}
         label.g{display: table-cell;}
@@ -142,8 +143,6 @@
         input.g{display: table-cell;
         width:245px;}
         p.g2{display: table-cell;
-        width:245px;}
-        textarea.g{display: table-cell;
         width:245px;}
         button.g1{display: table-cell;
         height:45px;
@@ -156,7 +155,7 @@
         position: relative;
         left: 19.5vh;
         font-size:110%;}
-        div.g2{
+        .g3{
             display:table-cell;
             padding: 2px;
             overflow:auto;
@@ -217,12 +216,18 @@
                 var buttons=document.getElementsByClassName("g1");
                 buttons[br-1].style.background="url('full.png')";   
             }
-            //Comments
+            //Za komentari
             function komentar(com,pt){
                 var inputV=document.getElementById(com).value;
-                var post=document.getElementById(pt).value;
-                post= post + "<br>" + inputV;
-                // inputV = "<p class='g'>" + inputV + "</p>";
+                var post=document.getElementById(pt).innerHTML;
+                if(post == "")
+                {
+                    post = inputV;
+                }
+                else
+                {
+                    post = post + "<br>" + inputV;
+                }
                 document.getElementById(pt).innerHTML=post;
             }
         </script>
@@ -387,44 +392,75 @@
                     <img class="s" src ="nat.jpg" height="250px" width = "250px">
                     <label class="g">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
                     <img class="s" src = "sushi.jpg" height=250px width=250px>
-                    <label class="g">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
-                    <img class="s" src="jas.jpg" height="250px" width="250px">
                 </p><br>
                 <p class="yes">
                     <label class="g">&emsp;</label>
                     <div class = "t" id="dv1"></div>
                     <label class="g">&emsp;</label>
                     <div class = "t2" id="dv2"></div>
-                    <label class="g">&emsp;</label>
-                    <div class = "t2" id="dv3"></div>
                 </p>
                 <p class="yes">
                     <label class="g">&emsp;</label>
                     <button id="btn1" class="g1" type="button" onclick="likes('btn1','dv1', '1'), this.disabled=true"></button>
                     <label class="g">&emsp;</label>
                     <button id="btn2" class="g1" type="button" onclick="likes('btn2','dv2', '2'), this.disabled=true"></button>
-                    <label class="g">&emsp;</label>
-                    <button id="btn3" class="g1" type="button" onclick="likes('btn3','dv3', '3'), this.disabled=true"></button>
                 </p>
                 <p class="yes">
                     <label class="g">&emsp;</label>
-                    <input id="com1" class="g" type="text" placeholder="Leave a comment!" onclick="komentar('com1', 'pt1')">
+                    <input id="com1" class="g" type="text" placeholder="Leave a comment!">
+                    <input onclick="komentar('com1', 'pt1')" type="button" value="Comment">
                     <label class="g">&emsp;</label>
                     <input  class="g" type="text" placeholder="Leave a comment!">
-                    <label class="g">&emsp;</label>
-                    <input  class="g" type="text" placeholder="Leave a comment!">
+                    <input type="button" value="Comment">
                 </p><br>
                 <p class="yes">
                     <label class="g">&emsp;</label>
-                    <div class="g2" id="pt1"></div>
+                    <p class="g3" id="pt1"></p>
+                    <label class="g">&emsp;</label>
+                    <div class="g2"></div>
+                </p><br>
+
+
+
+
+                <p class = "yes">
+                    <label class="g">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
+                    <img class="s" src="jas.jpg" height="250px" width="250px">
+                    <label class="g">&emsp;&emsp;&emsp;&emsp;</label>
+                    <img class="s" src ="steam.jpg" height="250px" width = "250px">
+                </p><br>
+                <p class="yes">
+                    <label class="g">&emsp;</label>
+                    <div class = "t2" id="dv3"></div>
+                    <label class="g">&emsp;</label>
+                    <div class = "t" id="dv4"></div>
+                </p>
+                <p class="yes">
+                    <label class="g">&emsp;</label>
+                    <button id="btn3" class="g1" type="button" onclick="likes('btn3','dv3', '3'), this.disabled=true"></button>
+                    <label class="g">&emsp;</label>
+                    <button id="btn4" class="g1" type="button" onclick="likes('btn4','dv4', '4'), this.disabled=true"></button>
+                </p>
+                <p class="yes">
+                    <label class="g">&emsp;</label>
+                    <input  class="g" type="text" placeholder="Leave a comment!">
+                    <input type="button" value="Comment">
+                    <label class="g">&emsp;</label>
+                    <input  class="g" type="text" placeholder="Leave a comment!">
+                    <input type="button" value="Comment">
+                </p><br>
+                <p class="yes">
                     <label class="g">&emsp;</label>
                     <div class="g2"></div>
                     <label class="g">&emsp;</label>
                     <div class="g2"></div>
                 </p><br>
+
+
+
+
+
                 <p class = "yes">
-                    <label class="g">&emsp;&emsp;&emsp;&emsp;</label>
-                    <img class="s" src ="steam.jpg" height="250px" width = "250px">
                     <label class="g">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
                     <img class="s" src = "BoW.png" height=250px width=250px>
                     <label class="g">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
@@ -432,15 +468,11 @@
                 </p><br>
                 <p class="yes">
                     <label class="g">&emsp;</label>
-                    <div class = "t" id="dv4"></div>
-                    <label class="g">&emsp;</label>
                     <div class = "t2" id="dv5"></div>
                     <label class="g">&emsp;</label>
                     <div class = "t2" id="dv6"></div>
                 </p>
                 <p class="yes">
-                    <label class="g">&emsp;</label>
-                    <button id="btn4" class="g1" type="button" onclick="likes('btn4','dv4', '4'), this.disabled=true"></button>
                     <label class="g">&emsp;</label>
                     <button id="btn5" class="g1" type="button" onclick="likes('btn5','dv5', '5'), this.disabled=true"></button>
                     <label class="g">&emsp;</label>
@@ -449,11 +481,17 @@
                 <p class="yes">
                     <label class="g">&emsp;</label>
                     <input  class="g" type="text" placeholder="Leave a comment!">
+                    <input type="button" value="Comment">
                     <label class="g">&emsp;</label>
                     <input  class="g" type="text" placeholder="Leave a comment!">
-                    <label class="g">&emsp;</label>
-                    <input  class="g" type="text" placeholder="Leave a comment!">
+                    <input type="button" value="Comment">
                 </p>
+                <p class="yes">
+                    <label class="g">&emsp;</label>
+                    <div class="g2"></div>
+                    <label class="g">&emsp;</label>
+                    <div class="g2"></div>
+                </p><br>
             </form>
         </div>
 
