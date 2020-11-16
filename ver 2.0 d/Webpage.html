@@ -216,7 +216,7 @@
                 var buttons=document.getElementsByClassName("g1");
                 for(var b=0;b<buttons.length+1;b++)
                 {
-                    buttons[b].style.background="url('empty.png')";   
+                    buttons[b].style.background="url('empty.png')";
                 }
             }
 
@@ -263,6 +263,26 @@
                 }
                 postR = "<p>" + postR + "</p>";
                 document.getElementById(broj).innerHTML=postR;
+            }
+
+            //Za search
+            function search() {
+                var ser = getElementsByTagName("input")[0].value;
+                ser = "#" + ser;
+                var pbr = getElementsByTagName("p");
+                var proveri;
+                var classEl = document.getElementsByClassName("yes");
+                for(var i=0; i<=pbr.length;i++)
+                {
+                    proveri=pbr[i].innerHTML;
+                    if(proveri.indexof(ser,0)==-1)
+                    {
+                        for(var j=0; j<6; j++)
+                        {
+                            classEl[j + (i*6)].style.display="none";
+                        }
+                    }
+                }
             }
         </script>
     </head>
@@ -419,7 +439,9 @@
         </div>
 
         <div id = "galerija" class = "slika" style = "display:none">
-            <h1>Gallery</h1>
+            <h1>Gallery</h1><br><br>
+            <input type='button' value="Search" onclick="search()">
+            <input type='text' placeholder="Search by Hashtag">
             <form class="g">
                 <p class = "yes">
                     <img class="s" src ="nat.jpg" height="400vh" width = "400vw">
