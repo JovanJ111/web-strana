@@ -64,16 +64,16 @@
             50% {opacity:0.5;}
             100% {opacity:1;}
         }
-        img.blink{animation: blink normal 2s infinite ease-in-out;
-        position: absolute;
-        right:0px;
-        top:0px;}
-        img.ad{height: 100%;
-        width: 100%;}
+        img.blink
+        {
+            animation: blink normal 2s infinite ease-in-out;
+            height: 100%;
+            width: 100%;
+        }
         div.third
         {
             float:left;
-            width: 10%;
+            width: 10vw;
             height: 100vh;
         }
         div.slika
@@ -81,7 +81,7 @@
             float: left;
             overflow:scroll;
             background-color:burlywood;
-            width: 76.5%;
+            width: 80vw;
             height: 100vh;
         }
         li.inte{font-size: 120%;}
@@ -92,7 +92,7 @@
         div.back
         {
             float:left;
-            width:10%;
+            width:10vw;
             height:100vh;
             display: table-cell;
             text-align: center;
@@ -111,17 +111,12 @@
         li.l{position: relative;
         left:5vh;
         font-size: 110%;}
-        li.l1{
-        /* position: relative; */
-        /* left:100px; */
-        font-size: 110%;}
+        li.l1{font-size: 110%;}
         .l2{
         position: relative;
         left:40px;
         font-size: 110%;}
         .l3{
-        /* position: relative; */
-        /* left:40px; */
         font-size: 105%;
         text-align: justify;}
         p.cl{position: relative;
@@ -132,36 +127,53 @@
         h1{text-align: center;}
 
         /* galerija */
-        button.kom{display: table-cell;}
         form.g{display:table;}
         p.yes{display: table-row;}
-        label.g{display: table-cell;}
-        img.s{display: table-cell;
-            position: relative;
-            top:20px; 
+        label.g, img.s, input.g, p.g2, button.g1, .t, .g3
+        {
+            display: table-cell;
         }
-        input.g{display: table-cell;
-        width:245px;}
-        p.g2{display: table-cell;
-        width:245px;}
-        button.g1{display: table-cell;
-        height:45px;
-        width:45px;}
-        .t{display:table-cell;
-        position: relative;
-        left: 15vh;
-        font-size:110%;}
-        .t2{display:table-cell;
-        position: relative;
-        left: 19.5vh;
-        font-size:110%;}
-        .g3{
-            display:table-cell;
-            padding: 2px;
+        .inp
+        {
+            position: relative;
+            left: 27.3vw;
+        }
+        img.s
+        {
+            position: relative;
+            top:4vh;
+            left: 27.5vw;
+        }
+        input.g
+        {
+            width:20.15vw;
+            position: relative;
+            left: 27.3vw;
+        }
+        p.g2{width:245px;}
+        button.g1
+        {
+            height:6vh;
+            width:3vw;
+            position: relative;
+            left: 27.3vw;
+        }
+        .t
+        {
+            position: relative;
+            left: 27.3vw;
+            font-size:110%;
+        }
+        .g3
+        {
+            position: relative;
+            left: 27.3vw;
+            padding: 10px;
             overflow:auto;
             max-height: 10px;
-            max-width: 40px;
+            max-width: 30px;
             border: 3px solid black;
+            text-align: right;
         }
 
         /* blog */
@@ -178,6 +190,7 @@
         header.b{text-align: center;
         font-size: 150%;
         font-weight: bold;}
+        .kelii{font-size: 80%;}
 
         /* kontakti */
         p.yesss
@@ -217,18 +230,39 @@
                 buttons[br-1].style.background="url('full.png')";   
             }
             //Za komentari
-            function komentar(com,pt){
+            var kom_count = new Array();
+            for(i=0; i<6; i++){
+                kom_count[i]=0;
+            }
+            function komentar(com, pt, count){
                 var inputV=document.getElementById(com).value;
                 var post=document.getElementById(pt).innerHTML;
                 if(post == "")
                 {
-                    post = inputV;
+                    post =inputV + "<br>" + "<p id='" + kom_count[count] + "' class='kelii'>" + "</p>";
                 }
                 else
                 {
-                    post = post + "<br>" + inputV;
+                    post = post + inputV + "<br>" + "<p id='" + kom_count[count] + "' class='kelii'>" + "</p>";
                 }
+                post = post + "<input id='ajt' type='text'>";
+                post = post + "<input type='button' value='Reply' onclick='reply(" + kom_count[count] + ")'><br>";
+                kom_count[count] += 1;
                 document.getElementById(pt).innerHTML=post;
+            }
+            function reply(broj) {
+                var inputR = document.getElementById("ajt").value;
+                var postR = document.getElementById(broj).innerHTML;
+                if(postR == "")
+                {
+                    postR = inputR;
+                }
+                else
+                {
+                    postR = postR + inputR;
+                }
+                postR = "<p>" + postR + "</p>";
+                document.getElementById(broj).innerHTML=postR;
             }
         </script>
     </head>
@@ -388,72 +422,74 @@
             <h1>Gallery</h1>
             <form class="g">
                 <p class = "yes">
-                    <label class="g">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
-                    <img class="s" src ="nat.jpg" height="250px" width = "250px">
-                    <label class="g">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
-                    <img class="s" src = "sushi.jpg" height=250px width=250px>
-                </p><br>
+                    <img class="s" src ="nat.jpg" height="400vh" width = "400vw">
+                </p><br><br>
                 <p class="yes">
-                    <label class="g">&emsp;</label>
-                    <div class = "t" id="dv1"></div>
-                    <label class="g">&emsp;</label>
-                    <div class = "t2" id="dv2"></div>
+                    <p class = "t" id="dv1"></p>
                 </p>
                 <p class="yes">
-                    <label class="g">&emsp;</label>
                     <button id="btn1" class="g1" type="button" onclick="likes('btn1','dv1', '1'), this.disabled=true"></button>
-                    <label class="g">&emsp;</label>
+                </p>
+                <p class="yes">
+                    <input id="com1" class="g" type="text" placeholder="Leave a comment!">
+                    <input class="inp" onclick="komentar('com1', 'pt1', '0')" type="button" value="Comment">
+                </p><br>
+                <p class="yes">
+                    <p class="g3" id="pt1"></p>
+                </p><br>
+
+                <p class = "yes">
+                    <img class="s" src = "sushi.jpg" height="400vh" width = "400vw">
+                </p><br><br>
+                <p class="yes">
+                    <p class = "t" id="dv2"></p>
+                </p>
+                <p class="yes">
                     <button id="btn2" class="g1" type="button" onclick="likes('btn2','dv2', '2'), this.disabled=true"></button>
                 </p>
                 <p class="yes">
-                    <label class="g">&emsp;</label>
-                    <input id="com1" class="g" type="text" placeholder="Leave a comment!">
-                    <input onclick="komentar('com1', 'pt1')" type="button" value="Comment">
-                    <label class="g">&emsp;</label>
-                    <input  class="g" type="text" placeholder="Leave a comment!">
-                    <input type="button" value="Comment">
+                    <input id="com2" class="g" type="text" placeholder="Leave a comment!">
+                    <input class="inp" onclick="komentar('com2', 'pt2', '1')" type="button" value="Comment">
                 </p><br>
                 <p class="yes">
-                    <label class="g">&emsp;</label>
-                    <p class="g3" id="pt1"></p>
-                    <label class="g">&emsp;</label>
-                    <div class="g2"></div>
+                    <p class="g3" id="pt2"></p>
                 </p><br>
 
 
 
 
                 <p class = "yes">
-                    <label class="g">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
-                    <img class="s" src="jas.jpg" height="250px" width="250px">
-                    <label class="g">&emsp;&emsp;&emsp;&emsp;</label>
-                    <img class="s" src ="steam.jpg" height="250px" width = "250px">
+                    <img class="s" src="jas.jpg" height="400vh" width = "400vw">
+                </p><br><br>
+                <p class="yes">
+                    <div class = "t" id="dv3"></div>
+                </p>
+                <p class="yes">
+                    <button id="btn3" class="g1" type="button" onclick="likes('btn3','dv3', '3'), this.disabled=true"></button>
+                </p>
+                <p class="yes">
+                    <input id="com3" class="g" type="text" placeholder="Leave a comment!">
+                    <input class="inp" onclick="komentar('com3', 'pt3', 2)" type="button" value="Comment">
                 </p><br>
                 <p class="yes">
-                    <label class="g">&emsp;</label>
-                    <div class = "t2" id="dv3"></div>
-                    <label class="g">&emsp;</label>
+                    <p class="g3" id="pt3"></p>
+                </p><br>
+
+                <p class = "yes">
+                    <img class="s" src ="steam.jpg" height="400vh" width = "400vw">
+                </p><br><br>
+                <p class="yes">
                     <div class = "t" id="dv4"></div>
                 </p>
                 <p class="yes">
-                    <label class="g">&emsp;</label>
-                    <button id="btn3" class="g1" type="button" onclick="likes('btn3','dv3', '3'), this.disabled=true"></button>
-                    <label class="g">&emsp;</label>
                     <button id="btn4" class="g1" type="button" onclick="likes('btn4','dv4', '4'), this.disabled=true"></button>
                 </p>
                 <p class="yes">
-                    <label class="g">&emsp;</label>
-                    <input  class="g" type="text" placeholder="Leave a comment!">
-                    <input type="button" value="Comment">
-                    <label class="g">&emsp;</label>
-                    <input  class="g" type="text" placeholder="Leave a comment!">
-                    <input type="button" value="Comment">
+                    <input id="com4" class="g" type="text" placeholder="Leave a comment!">
+                    <input class="inp" onclick="komentar('com4', 'pt4', 3)" type="button" value="Comment">
                 </p><br>
                 <p class="yes">
-                    <label class="g">&emsp;</label>
-                    <div class="g2"></div>
-                    <label class="g">&emsp;</label>
-                    <div class="g2"></div>
+                    <p class="g3" id="pt4"></p>
                 </p><br>
 
 
@@ -461,36 +497,37 @@
 
 
                 <p class = "yes">
-                    <label class="g">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
-                    <img class="s" src = "BoW.png" height=250px width=250px>
-                    <label class="g">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</label>
-                    <img class="s" src="advt.png" height="250px" width="250px">
-                </p><br>
+                    <img class="s" src = "BoW.png" height="400vh" width = "400vw">
+                </p><br><br>
                 <p class="yes">
-                    <label class="g">&emsp;</label>
-                    <div class = "t2" id="dv5"></div>
-                    <label class="g">&emsp;</label>
-                    <div class = "t2" id="dv6"></div>
+                    <div class = "t" id="dv5"></div>
                 </p>
                 <p class="yes">
-                    <label class="g">&emsp;</label>
                     <button id="btn5" class="g1" type="button" onclick="likes('btn5','dv5', '5'), this.disabled=true"></button>
-                    <label class="g">&emsp;</label>
-                    <button id="btn6" class="g1" type="button" onclick="likes('btn6','dv6', '6'), this.disabled=true"></button>
-                </p><br>
-                <p class="yes">
-                    <label class="g">&emsp;</label>
-                    <input  class="g" type="text" placeholder="Leave a comment!">
-                    <input type="button" value="Comment">
-                    <label class="g">&emsp;</label>
-                    <input  class="g" type="text" placeholder="Leave a comment!">
-                    <input type="button" value="Comment">
                 </p>
                 <p class="yes">
-                    <label class="g">&emsp;</label>
-                    <div class="g2"></div>
-                    <label class="g">&emsp;</label>
-                    <div class="g2"></div>
+                    <input id="com5" class="g" type="text" placeholder="Leave a comment!">
+                    <input class="inp" onclick="komentar('com5', 'pt5', 4)" type="button" value="Comment">
+                </p><br>
+                <p class="yes">
+                    <p class="g3" id="pt5"></p>
+                </p><br>
+
+                <p class = "yes">
+                    <img class="s" src="advt.png" height="400vh" width = "400vw">
+                </p><br><br>
+                <p class="yes">
+                    <div class = "t" id="dv6"></div>
+                </p>
+                <p class="yes">
+                    <button id="btn6" class="g1" type="button" onclick="likes('btn6','dv6', '6'), this.disabled=true"></button>
+                </p>
+                <p class="yes">
+                    <input id="com6" class="g" type="text" placeholder="Leave a comment!">
+                    <input class="inp" onclick="komentar('com6', 'pt6', 5)" type="button" value="Comment">
+                </p><br>
+                <p class="yes">
+                    <p class="g3" id="pt6"></p>
                 </p><br>
             </form>
         </div>
