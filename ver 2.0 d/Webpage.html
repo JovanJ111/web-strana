@@ -167,14 +167,18 @@
         .g3
         {
             position: relative;
-            left: 27.3vw;
+            left: 2vw;
+            top: 2vh;
             padding: 10px;
             overflow:auto;
-            max-height: 10px;
-            max-width: 30px;
+            height: 10px;
+            width: 23.6vw;
             border: 3px solid black;
             text-align: right;
         }
+        .kelii{font-size: 80%;}
+        p.hash{position: relative;
+        left:27.3vw;}
 
         /* blog */
         .wrapb{
@@ -190,7 +194,6 @@
         header.b{text-align: center;
         font-size: 150%;
         font-weight: bold;}
-        .kelii{font-size: 80%;}
 
         /* kontakti */
         p.yesss
@@ -211,12 +214,13 @@
             function first() {
                 for(var i=1; i<7;i++)
                 {
-                    document.getElementById('dv'+i).innerHTML = localStorage.getItem('likes'+i);
+                    document.getElementById('dv'+i).innerHTML = "Likes: "  + localStorage.getItem('likes'+i);
                 }
                 var buttons=document.getElementsByClassName("g1");
                 for(var b=0;b<buttons.length+1;b++)
                 {
                     buttons[b].style.background="url('empty.png')";
+
                 }
             }
 
@@ -267,19 +271,45 @@
 
             //Za search
             function search() {
-                var ser = getElementsByTagName("input")[0].value;
-                ser = "#" + ser;
-                var pbr = getElementsByTagName("p");
-                var proveri;
-                var classEl = document.getElementsByClassName("yes");
-                for(var i=0; i<=pbr.length;i++)
+                var ser = document.getElementById("ser").value;
+                var pbr = document.getElementsByName("hash");
+                var ps = document.getElementById("main").getElementsByTagName("p");
+                var m = 0;
+                for(var i=5; i>=0; i--)
                 {
-                    proveri=pbr[i].innerHTML;
-                    if(proveri.indexof(ser,0)==-1)
+                    var p = pbr[i].innerText;
+                    alert(p.indexOf(ser,0));
+                    if(p.indexOf(ser,0) > -1)
                     {
-                        for(var j=0; j<6; j++)
+                        alert("ok");
+                    }
+                    else
+                    {
+                        switch(i)
                         {
-                            classEl[j + (i*6)].style.display="none";
+                            case 5:
+                                m=49;
+                                break;
+                            case 4:
+                                m=39;
+                                break;
+                            case 3:
+                                m=29;
+                                break;
+                            case 2:
+                                m=19;
+                                break;
+                            case 1:
+                                m=9;
+                                break;
+                            case 0:
+                                m=0;
+                                break;
+                        }
+                        for(var j=9; j>=0; j--)
+                        {
+                            var novo = ps[m+j];
+                            novo.parentNode.removeChild(novo);
                         }
                     }
                 }
@@ -440,117 +470,131 @@
 
         <div id = "galerija" class = "slika" style = "display:none">
             <h1>Gallery</h1><br><br>
-            <input type='button' value="Search" onclick="search()">
-            <input type='text' placeholder="Search by Hashtag">
+            <input class="t" type='button' value="Search" onclick="search()">
+            <input id="ser" class="t" type='text' placeholder="Search by Hashtag">
             <form class="g">
-                <p class = "yes">
+
+                <p name="searc" class = "yes">
                     <img class="s" src ="nat.jpg" height="400vh" width = "400vw">
                 </p><br><br>
-                <p class="yes">
-                    <p class = "t" id="dv1"></p>
+                <p name="searc" class = "yes">`
+                    <p name="hash" class = "t">#nature #fresh</p>
                 </p>
-                <p class="yes">
+                <p name="searc" class="yes">`
+                    <p id="dv1" class = "t"></p>
+                </p>
+                <p name="searc" class="yes">
                     <button id="btn1" class="g1" type="button" onclick="likes('btn1','dv1', '1'), this.disabled=true"></button>
                 </p>
-                <p class="yes">
+                <p name="searc" class="yes">
                     <input id="com1" class="g" type="text" placeholder="Leave a comment!">
                     <input class="inp" onclick="komentar('com1', 'pt1', '0')" type="button" value="Comment">
                 </p><br>
-                <p class="yes">
-                    <p class="g3" id="pt1"></p>
-                </p><br>
+                <p name="searc" id="pt1" class="g3">'</p><br><!--9 ako e od 0-9-->
 
-                <p class = "yes">
+
+
+
+                <p name="searc" class = "yes">
                     <img class="s" src = "sushi.jpg" height="400vh" width = "400vw">
                 </p><br><br>
-                <p class="yes">
-                    <p class = "t" id="dv2"></p>
+                <p name="searc" class = "yes">`
+                    <p name="hash" class = "t">#fresh #sushi #food</p>
                 </p>
-                <p class="yes">
+                <p name="searc" class="yes">`
+                    <p id="dv2" class = "t"></p>
+                </p>
+                <p name="searc" class="yes">
                     <button id="btn2" class="g1" type="button" onclick="likes('btn2','dv2', '2'), this.disabled=true"></button>
                 </p>
-                <p class="yes">
+                <p name="searc" class="yes">
                     <input id="com2" class="g" type="text" placeholder="Leave a comment!">
                     <input class="inp" onclick="komentar('com2', 'pt2', '1')" type="button" value="Comment">
                 </p><br>
-                <p class="yes">
-                    <p class="g3" id="pt2"></p>
-                </p><br>
+                <p name="searc" id="pt2" class="g3">'</p><br>
 
 
 
 
-                <p class = "yes">
+                <p name="searc" class = "yes">
                     <img class="s" src="jas.jpg" height="400vh" width = "400vw">
                 </p><br><br>
-                <p class="yes">
-                    <div class = "t" id="dv3"></div>
+                <p name="searc" class = "yes">`
+                    <p name="hash" class = "t">#smile #restaurant #food</p>
                 </p>
-                <p class="yes">
+                <p name="searc" class="yes">`
+                    <p id="dv3" class = "t"></p>
+                </p>
+                <p name="searc" class="yes">
                     <button id="btn3" class="g1" type="button" onclick="likes('btn3','dv3', '3'), this.disabled=true"></button>
                 </p>
-                <p class="yes">
+                <p name="searc" class="yes">
                     <input id="com3" class="g" type="text" placeholder="Leave a comment!">
                     <input class="inp" onclick="komentar('com3', 'pt3', 2)" type="button" value="Comment">
                 </p><br>
-                <p class="yes">
-                    <p class="g3" id="pt3"></p>
-                </p><br>
+                <p name="searc" id="pt3" class="g3">'</p><br>
 
-                <p class = "yes">
+
+
+            
+                <p name="searc" class = "yes">
                     <img class="s" src ="steam.jpg" height="400vh" width = "400vw">
                 </p><br><br>
-                <p class="yes">
-                    <div class = "t" id="dv4"></div>
+                <p name="searc" class = "yes">`
+                    <p name="hash" class = "t">#steampunk #art</p>
                 </p>
-                <p class="yes">
+                <p name="searc" class="yes">`
+                    <p id="dv4" class = "t"></p>
+                </p>
+                <p name="searc" class="yes">
                     <button id="btn4" class="g1" type="button" onclick="likes('btn4','dv4', '4'), this.disabled=true"></button>
                 </p>
-                <p class="yes">
+                <p name="searc" class="yes">
                     <input id="com4" class="g" type="text" placeholder="Leave a comment!">
                     <input class="inp" onclick="komentar('com4', 'pt4', 3)" type="button" value="Comment">
                 </p><br>
-                <p class="yes">
-                    <p class="g3" id="pt4"></p>
-                </p><br>
+                <p name="searc" id="pt4" class="g3">'</p><br>
 
 
 
-
-
-                <p class = "yes">
+                <p name="searc" class = "yes">
                     <img class="s" src = "BoW.png" height="400vh" width = "400vw">
                 </p><br><br>
-                <p class="yes">
-                    <div class = "t" id="dv5"></div>
+                <p name="searc" class = "yes">'
+                    <p name="hash" class = "t">#history #art #war</p>
                 </p>
-                <p class="yes">
+                <p name="searc" class="yes">'
+                    <p id="dv5" class = "t"></p>
+                </p>
+                <p name="searc" class="yes">
                     <button id="btn5" class="g1" type="button" onclick="likes('btn5','dv5', '5'), this.disabled=true"></button>
                 </p>
-                <p class="yes">
+                <p name="searc" class="yes">
                     <input id="com5" class="g" type="text" placeholder="Leave a comment!">
                     <input class="inp" onclick="komentar('com5', 'pt5', 4)" type="button" value="Comment">
                 </p><br>
-                <p class="yes">
-                    <p class="g3" id="pt5"></p>
-                </p><br>
+                <p name="searc" id="pt5" class="g3">'</p><br>
 
-                <p class = "yes">
+
+
+
+                <p name="searc" class = "yes">
                     <img class="s" src="advt.png" height="400vh" width = "400vw">
                 </p><br><br>
-                <p class="yes">
-                    <div class = "t" id="dv6"></div>
+                <p name="searc" class = "yes">`
+                    <p name="hash" class = "t">#cartoon #smile #action</p>
                 </p>
-                <p class="yes">
+                <p name="searc" class="yes">`
+                    <p id="dv6" class = "t"></p>
+                </p>
+                <p name="searc" class="yes">
                     <button id="btn6" class="g1" type="button" onclick="likes('btn6','dv6', '6'), this.disabled=true"></button>
                 </p>
-                <p class="yes">
+                <p name="searc" class="yes">
                     <input id="com6" class="g" type="text" placeholder="Leave a comment!">
                     <input class="inp" onclick="komentar('com6', 'pt6', 5)" type="button" value="Comment">
                 </p><br>
-                <p class="yes">
-                    <p class="g3" id="pt6"></p>
-                </p><br>
+                <p name="searc" id="pt6" class="g3">'</p><br>
             </form>
         </div>
 
