@@ -206,7 +206,7 @@
         </style>
 
         <script>
-            // Za homepage
+            // Za navigacija
             function dodaj(vred) {
                 document.getElementById("main").innerHTML=document.getElementById(vred).innerHTML
             }
@@ -215,6 +215,7 @@
                 for(var i=1; i<7;i++)
                 {
                     document.getElementById('dv'+i).innerHTML = localStorage.getItem('likes'+i);
+                    // document.getElementById("pt" + i).innerHTML = localStorage.getItem('komentar' + i);
                 }
                 var buttons=document.getElementsByClassName("g1");
                 for(var b=0;b<buttons.length+1;b++)
@@ -250,11 +251,13 @@
                     post = post + inputV + "<br>" + "<p id='" + kom_count[count] + "' class='kelii'>" + "</p>";
                 }
                 post = post + "<input id='" + kom_count[count] + kom_count[count] + "' type='text'>";
-                post = post + "<input type='button' value='Reply' onclick='reply(" + kom_count[count] + "," + kom_count[count] + kom_count[count] + ")'><br>";
+                post = post + "<input type='button' value='Reply' onclick='reply(" + kom_count[count] + "," + kom_count[count] + kom_count[count] + "," + count + ")'><br>";
                 kom_count[count] += 1;
                 document.getElementById(pt).innerHTML=post;
+                // var celo = document.getElementById("pt" + (count +1));
+                // localStorage.setItem('komentar' + (count + 1), celo);
             }
-            function reply(broj, inputbr) {
+            function reply(broj, inputbr, za_pt) {
                 var inputR = document.getElementById(inputbr).value;
                 var postR = document.getElementById(broj).innerHTML;
                 if(postR == "")
@@ -267,6 +270,8 @@
                 }
                 postR = "<p>" + postR + "</p>";
                 document.getElementById(broj).innerHTML=postR;
+                // var celo = document.getElementById("pt" + (count +1));
+                // localStorage.setItem('komentar' + (count + 1), celo);
             }
 
             //Za search
@@ -486,7 +491,7 @@
                 </p>
                 <p name="searc" class="yes">
                     <input id="com1" class="g" type="text" placeholder="Leave a comment!">
-                    <input class="inp" onclick="komentar('com1', 'pt1', '0')" type="button" value="Comment">
+                    <input class="inp" onclick="komentar('com1', 'pt1', 0)" type="button" value="Comment">
                 </p><br>
                 <p name="searc" id="pt1" class="g3"></p><br><!--9 ako e od 0-9-->
 
@@ -507,7 +512,7 @@
                 </p>
                 <p name="searc" class="yes">
                     <input id="com2" class="g" type="text" placeholder="Leave a comment!">
-                    <input class="inp" onclick="komentar('com2', 'pt2', '1')" type="button" value="Comment">
+                    <input class="inp" onclick="komentar('com2', 'pt2', 1)" type="button" value="Comment">
                 </p><br>
                 <p name="searc" id="pt2" class="g3"></p><br>
 
