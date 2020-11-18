@@ -214,7 +214,7 @@
             function first() {
                 for(var i=1; i<7;i++)
                 {
-                    document.getElementById('dv'+i).innerHTML = "Likes: "  + localStorage.getItem('likes'+i);
+                    document.getElementById('dv'+i).innerHTML = localStorage.getItem('likes'+i);
                 }
                 var buttons=document.getElementsByClassName("g1");
                 for(var b=0;b<buttons.length+1;b++)
@@ -236,7 +236,7 @@
             //Za komentari
             var kom_count = new Array();
             for(i=0; i<6; i++){
-                kom_count[i]=0;
+                kom_count[i]=1;
             }
             function komentar(com, pt, count){
                 var inputV=document.getElementById(com).value;
@@ -249,13 +249,13 @@
                 {
                     post = post + inputV + "<br>" + "<p id='" + kom_count[count] + "' class='kelii'>" + "</p>";
                 }
-                post = post + "<input id='ajt' type='text'>";
-                post = post + "<input type='button' value='Reply' onclick='reply(" + kom_count[count] + ")'><br>";
+                post = post + "<input id='" + kom_count[count] + kom_count[count] + "' type='text'>";
+                post = post + "<input type='button' value='Reply' onclick='reply(" + kom_count[count] + "," + kom_count[count] + kom_count[count] + ")'><br>";
                 kom_count[count] += 1;
                 document.getElementById(pt).innerHTML=post;
             }
-            function reply(broj) {
-                var inputR = document.getElementById("ajt").value;
+            function reply(broj, inputbr) {
+                var inputR = document.getElementById(inputbr).value;
                 var postR = document.getElementById(broj).innerHTML;
                 if(postR == "")
                 {
@@ -288,19 +288,19 @@
                         switch(i)
                         {
                             case 5:
-                                m=49;
+                                m=50;
                                 break;
                             case 4:
-                                m=39;
+                                m=40;
                                 break;
                             case 3:
-                                m=29;
+                                m=30;
                                 break;
                             case 2:
-                                m=19;
+                                m=20;
                                 break;
                             case 1:
-                                m=9;
+                                m=10;
                                 break;
                             case 0:
                                 m=0;
@@ -477,10 +477,10 @@
                 <p name="searc" class = "yes">
                     <img class="s" src ="nat.jpg" height="400vh" width = "400vw">
                 </p><br><br>
-                <p name="searc" class = "yes">`
+                <p name="searc" class = "yes">
                     <p name="hash" class = "t">#nature #fresh</p>
                 </p>
-                <p name="searc" class="yes">`
+                <p name="searc" class="yes">
                     <p id="dv1" class = "t"></p>
                 </p>
                 <p name="searc" class="yes">
@@ -490,7 +490,7 @@
                     <input id="com1" class="g" type="text" placeholder="Leave a comment!">
                     <input class="inp" onclick="komentar('com1', 'pt1', '0')" type="button" value="Comment">
                 </p><br>
-                <p name="searc" id="pt1" class="g3">'</p><br><!--9 ako e od 0-9-->
+                <p name="searc" id="pt1" class="g3"></p><br><!--9 ako e od 0-9-->
 
 
 
@@ -498,10 +498,10 @@
                 <p name="searc" class = "yes">
                     <img class="s" src = "sushi.jpg" height="400vh" width = "400vw">
                 </p><br><br>
-                <p name="searc" class = "yes">`
+                <p name="searc" class = "yes">
                     <p name="hash" class = "t">#fresh #sushi #food</p>
                 </p>
-                <p name="searc" class="yes">`
+                <p name="searc" class="yes">
                     <p id="dv2" class = "t"></p>
                 </p>
                 <p name="searc" class="yes">
@@ -511,7 +511,7 @@
                     <input id="com2" class="g" type="text" placeholder="Leave a comment!">
                     <input class="inp" onclick="komentar('com2', 'pt2', '1')" type="button" value="Comment">
                 </p><br>
-                <p name="searc" id="pt2" class="g3">'</p><br>
+                <p name="searc" id="pt2" class="g3"></p><br>
 
 
 
@@ -519,10 +519,10 @@
                 <p name="searc" class = "yes">
                     <img class="s" src="jas.jpg" height="400vh" width = "400vw">
                 </p><br><br>
-                <p name="searc" class = "yes">`
+                <p name="searc" class = "yes">
                     <p name="hash" class = "t">#smile #restaurant #food</p>
                 </p>
-                <p name="searc" class="yes">`
+                <p name="searc" class="yes">
                     <p id="dv3" class = "t"></p>
                 </p>
                 <p name="searc" class="yes">
@@ -532,7 +532,7 @@
                     <input id="com3" class="g" type="text" placeholder="Leave a comment!">
                     <input class="inp" onclick="komentar('com3', 'pt3', 2)" type="button" value="Comment">
                 </p><br>
-                <p name="searc" id="pt3" class="g3">'</p><br>
+                <p name="searc" id="pt3" class="g3"></p><br>
 
 
 
@@ -540,10 +540,10 @@
                 <p name="searc" class = "yes">
                     <img class="s" src ="steam.jpg" height="400vh" width = "400vw">
                 </p><br><br>
-                <p name="searc" class = "yes">`
+                <p name="searc" class = "yes">
                     <p name="hash" class = "t">#steampunk #art</p>
                 </p>
-                <p name="searc" class="yes">`
+                <p name="searc" class="yes">
                     <p id="dv4" class = "t"></p>
                 </p>
                 <p name="searc" class="yes">
@@ -553,17 +553,17 @@
                     <input id="com4" class="g" type="text" placeholder="Leave a comment!">
                     <input class="inp" onclick="komentar('com4', 'pt4', 3)" type="button" value="Comment">
                 </p><br>
-                <p name="searc" id="pt4" class="g3">'</p><br>
+                <p name="searc" id="pt4" class="g3"></p><br>
 
 
 
                 <p name="searc" class = "yes">
                     <img class="s" src = "BoW.png" height="400vh" width = "400vw">
                 </p><br><br>
-                <p name="searc" class = "yes">'
+                <p name="searc" class = "yes">
                     <p name="hash" class = "t">#history #art #war</p>
                 </p>
-                <p name="searc" class="yes">'
+                <p name="searc" class="yes">
                     <p id="dv5" class = "t"></p>
                 </p>
                 <p name="searc" class="yes">
@@ -573,7 +573,7 @@
                     <input id="com5" class="g" type="text" placeholder="Leave a comment!">
                     <input class="inp" onclick="komentar('com5', 'pt5', 4)" type="button" value="Comment">
                 </p><br>
-                <p name="searc" id="pt5" class="g3">'</p><br>
+                <p name="searc" id="pt5" class="g3"></p><br>
 
 
 
@@ -581,10 +581,10 @@
                 <p name="searc" class = "yes">
                     <img class="s" src="advt.png" height="400vh" width = "400vw">
                 </p><br><br>
-                <p name="searc" class = "yes">`
+                <p name="searc" class = "yes">
                     <p name="hash" class = "t">#cartoon #smile #action</p>
                 </p>
-                <p name="searc" class="yes">`
+                <p name="searc" class="yes">
                     <p id="dv6" class = "t"></p>
                 </p>
                 <p name="searc" class="yes">
@@ -594,7 +594,7 @@
                     <input id="com6" class="g" type="text" placeholder="Leave a comment!">
                     <input class="inp" onclick="komentar('com6', 'pt6', 5)" type="button" value="Comment">
                 </p><br>
-                <p name="searc" id="pt6" class="g3">'</p><br>
+                <p name="searc" id="pt6" class="g3"></p><br>
             </form>
         </div>
 
