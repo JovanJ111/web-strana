@@ -128,8 +128,8 @@
         h1{text-align: center;}
 
         /* galerija */
-        form.g{display:table;}
-        p.yes, {display: table-row;}
+        form.g, div.g{display:table;}
+        p.yes{display: table-row;}
         label.g, img.s, input.g, p.g2, button.g1, .t, .g3
         {
             display: table-cell;
@@ -230,109 +230,107 @@
                 buttons[br-1].style.background="url('full.png')";   
             }
             //Za komentari
-            var kom_count = new Array();
-            for(i=0; i<6; i++){
-                kom_count[i]=1;
-            }
-            function komentar(com, pt, count){
-                var inputV=document.getElementById(com).value;
-                var post=document.getElementById(pt).innerHTML;
-                if(post == "")
-                {
-                    post =inputV + "<br>" + "<p id='" + kom_count[count] + "' class='kelii'>" + "</p>";
-                }
-                else
-                {
-                    post = post + inputV + "<br>" + "<p id='" + kom_count[count] + "' class='kelii'>" + "</p>";
-                }
-                post = post + "<input id='" + kom_count[count] + kom_count[count] + "' type='text'>";
-                post = post + "<input type='button' value='Reply' onclick='reply(" + kom_count[count] + "," + kom_count[count] + kom_count[count] + ")'><br>";
-                kom_count[count] += 1;
-                document.getElementById(pt).innerHTML=post;
-            }
-            function reply(broj, inputbr) {
-                var inputR = document.getElementById(inputbr).value;
-                var postR = document.getElementById(broj).innerHTML;
-                if(postR == "")
-                {
-                    postR = inputR;
-                }
-                else
-                {
-                    postR = postR + inputR;
-                }
-                postR = "<p>" + postR + "</p>";
-                document.getElementById(broj).innerHTML=postR;
-            }
-
-            //Za search
-            function search() {
-                var ser = document.getElementById("ser").value;
-                var pbr = document.getElementsByName("hash");
-                var ps = document.getElementById("main").getElementsByTagName("p");
-                var m = 0;
-                for(var i=5; i>=0; i--)
-                {
-                    var p = pbr[i].innerText;
-                    if(p.indexOf(ser,0) > -1)
-                    {
-                    }
-                    else
-                    {
-                        switch(i)
-                        {
-                            case 5:
-                                m=50;
-                                break;
-                            case 4:
-                                m=40;
-                                break;
-                            case 3:
-                                m=30;
-                                break;
-                            case 2:
-                                m=20;
-                                break;
-                            case 1:
-                                m=10;
-                                break;
-                            case 0:
-                                m=0;
-                                break;
-                        }
-                        for(var j=9; j>=0; j--)
-                        {
-                            var novo = ps[m+j];
-                            novo.parentNode.removeChild(novo);
-                        }
-                    }
-                }
-            }
+            // var kom_count = new Array();
+            // for(i=0; i<6; i++){
+            //     kom_count[i]=1;
+            // }
+            // function komentar(com, pt, count){
+            //     var inputV=document.getElementById(com).value;
+            //     var post=document.getElementById(pt).innerHTML;
+            //     if(post == "")
+            //     {
+            //         post =inputV + "<br>" + "<p id='" + kom_count[count] + "' class='kelii'>" + "</p>";
+            //     }
+            //     else
+            //     {
+            //         post = post + inputV + "<br>" + "<p id='" + kom_count[count] + "' class='kelii'>" + "</p>";
+            //     }
+            //     post = post + "<input id='" + kom_count[count] + kom_count[count] + "' type='text'>";
+            //     post = post + "<input type='button' value='Reply' onclick='reply(" + kom_count[count] + "," + kom_count[count] + kom_count[count] + ")'><br>";
+            //     kom_count[count] += 1;
+            //     document.getElementById(pt).innerHTML=post;
+            // }
+            // function reply(broj, inputbr) {
+            //     var inputR = document.getElementById(inputbr).value;
+            //     var postR = document.getElementById(broj).innerHTML;
+            //     if(postR == "")
+            //     {
+            //         postR = inputR;
+            //     }
+            //     else
+            //     {
+            //         postR = postR + inputR;
+            //     }
+            //     postR = "<p>" + postR + "</p>";
+            //     document.getElementById(broj).innerHTML=postR;
+            // }
         </script>
         <script>
             //Navigacija
             $(document).ready(function(){
                 $("#bh").click(function(){
-                    $(".slika").hide()
-                    $("#homepage").show()
-                })
+                    $(".slika").hide();
+                    $("#homepage").show();
+                });
                 $("#bi").click(function(){
-                    $(".slika").hide()
-                    $("#interesi").show()
-                })
+                    $(".slika").hide();
+                    $("#interesi").show();
+                });
                 $("#bg").click(function(){
-                    $(".slika").hide()
-                    $("#galerija").show()
-                })
+                    $(".slika").hide();
+                    $("#galerija").show();
+                });
                 $("#bb").click(function(){
-                    $(".slika").hide()
-                    $("#blog").show()
-                })
+                    $(".slika").hide();
+                    $("#blog").show();
+                });
                 $("#bc").click(function(){
-                    $(".slika").hide()
-                    $("#kontakti").show()
-                })
-            })
+                    $(".slika").hide();
+                    $("#kontakti").show();
+                });
+            });
+            //search bar
+            $(document).ready(function(){
+                $("#ser4").click(function(){
+                    var prov = "#" + $("#ser").val();
+                    $("div .g").each(function(){
+                        $("div .g:not(:contains(" + prov + "))").hide();
+                    });
+                });
+                $("#re4").click(function(){
+                    $("div .g").show();
+                });
+            });
+            var kom_count =[0,0,0,0,0,0];
+            var cn = 0;
+            function komentar(com, pt, count, i){
+                    var inputV=$("#" + com + "").val();
+                    $("#" + pt + "").append("<p id='" + kom_count[count] + "' class='kelii'>"+inputV+"</p>");
+                    var novo = "ddd"+cn;
+                    $("#" + pt + "").append("<input id='" + novo + "' type='text'>");
+                    $("#" + pt + "").append("<input type='button' value='Reply' onclick='reply(" + kom_count[count] + "," + '"'+novo+ '"' + ")'>");
+                    kom_count[count] += 1;
+                    cn += 1;
+                }
+                function reply(broj, inputbr, i) {
+                // var inputR = document.getElementById(inputbr).value;
+                // var inputR = $("div #1 input #"+inputbr+"").val();
+                alert(inputbr);    
+                var inputR = $("#"+inputbr).val();
+                alert(inputR);
+                // var postR = document.getElementById(broj).innerHTML;
+                // if(postR == "")
+                // {
+                //     postR = inputR;
+                // }
+                // else
+                // {
+                //     postR = postR + inputR;
+                // }
+                // postR = "<p>" + postR + "</p>";
+                // document.getElementById(broj).innerHTML=postR;
+                $("div #0 p #"+broj).append("<p>" + inputR + "</p>");
+            }
         </script>
     </head>
 
@@ -435,10 +433,11 @@
 
         <div id = "galerija" class = "slika" style = "display:none">
             <h1>Gallery</h1><br><br>
-            <input class="t" type='button' value="Search" onclick="search()">
+            <input id="ser4" class="t" type='button' value="Search">
             <input id="ser" class="t" type='text' placeholder="Search by Hashtag">
+            <input id="re4" class="t" type='button' value="Reset">
             <form class="g">
-                <div>
+                <div id="0" class="g">
                 <p name="searc" class = "yes">
                     <img class="s" src ="nat.jpg" height="400vh" width = "400vw">
                 </p><br><br>
@@ -453,13 +452,13 @@
                 </p>
                 <p name="searc" class="yes">
                     <input id="com1" class="g" type="text" placeholder="Leave a comment!">
-                    <input class="inp" onclick="komentar('com1', 'pt1', '0')" type="button" value="Comment">
+                    <input class="inp" onclick="komentar('com1', 'pt1', 0, 0)" type="button" value="Comment">
                 </p><br>
                 <p name="searc" id="pt1" class="g3"></p><br></div>
 
 
 
-
+                <div id="1" class="g">
                 <p name="searc" class = "yes">
                     <img class="s" src = "sushi.jpg" height="400vh" width = "400vw">
                 </p><br><br>
@@ -474,13 +473,13 @@
                 </p>
                 <p name="searc" class="yes">
                     <input id="com2" class="g" type="text" placeholder="Leave a comment!">
-                    <input class="inp" onclick="komentar('com2', 'pt2', '1')" type="button" value="Comment">
+                    <input class="inp" onclick="komentar('com2', 'pt2', 1, 1)" type="button" value="Comment">
                 </p><br>
-                <p name="searc" id="pt2" class="g3"></p><br>
+                <p name="searc" id="pt2" class="g3"></p><br></div>
 
 
 
-
+                <div id="2" class="g">
                 <p name="searc" class = "yes">
                     <img class="s" src="jas.jpg" height="400vh" width = "400vw">
                 </p><br><br>
@@ -495,13 +494,13 @@
                 </p>
                 <p name="searc" class="yes">
                     <input id="com3" class="g" type="text" placeholder="Leave a comment!">
-                    <input class="inp" onclick="komentar('com3', 'pt3', 2)" type="button" value="Comment">
+                    <input class="inp" onclick="komentar('com3', 'pt3', 2, 2)" type="button" value="Comment">
                 </p><br>
-                <p name="searc" id="pt3" class="g3"></p><br>
+                <p name="searc" id="pt3" class="g3"></p><br></div>
 
 
 
-            
+                <div id="3" class="g">
                 <p name="searc" class = "yes">
                     <img class="s" src ="steam.jpg" height="400vh" width = "400vw">
                 </p><br><br>
@@ -516,12 +515,12 @@
                 </p>
                 <p name="searc" class="yes">
                     <input id="com4" class="g" type="text" placeholder="Leave a comment!">
-                    <input class="inp" onclick="komentar('com4', 'pt4', 3)" type="button" value="Comment">
+                    <input class="inp" onclick="komentar('com4', 'pt4', 3, 3)" type="button" value="Comment">
                 </p><br>
-                <p name="searc" id="pt4" class="g3"></p><br>
+                <p name="searc" id="pt4" class="g3"></p><br></div>
 
 
-
+                <div id="4" class="g">
                 <p name="searc" class = "yes">
                     <img class="s" src = "BoW.png" height="400vh" width = "400vw">
                 </p><br><br>
@@ -536,13 +535,13 @@
                 </p>
                 <p name="searc" class="yes">
                     <input id="com5" class="g" type="text" placeholder="Leave a comment!">
-                    <input class="inp" onclick="komentar('com5', 'pt5', 4)" type="button" value="Comment">
+                    <input class="inp" onclick="komentar('com5', 'pt5', 4, 4)" type="button" value="Comment">
                 </p><br>
-                <p name="searc" id="pt5" class="g3"></p><br>
+                <p name="searc" id="pt5" class="g3"></p><br></div>
 
 
 
-
+                <div id="5" class="g">
                 <p name="searc" class = "yes">
                     <img class="s" src="advt.png" height="400vh" width = "400vw">
                 </p><br><br>
@@ -557,9 +556,9 @@
                 </p>
                 <p name="searc" class="yes">
                     <input id="com6" class="g" type="text" placeholder="Leave a comment!">
-                    <input class="inp" onclick="komentar('com6', 'pt6', 5)" type="button" value="Comment">
+                    <input class="inp" onclick="komentar('com6', 'pt6', 5, 5)" type="button" value="Comment">
                 </p><br>
-                <p name="searc" id="pt6" class="g3"></p><br>
+                <p name="searc" id="pt6" class="g3"></p><br></div>
             </form>
         </div>
 
