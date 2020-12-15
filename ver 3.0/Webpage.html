@@ -129,7 +129,7 @@
 
         /* galerija */
         form.g{display:table;}
-        p.yes{display: table-row;}
+        p.yes, {display: table-row;}
         label.g, img.s, input.g, p.g2, button.g1, .t, .g3
         {
             display: table-cell;
@@ -206,10 +206,6 @@
 
         </style>
         <script>
-            // Za homepage
-            // function dodaj(vred) {
-            //     document.getElementById("main").innerHTML=document.getElementById(vred).innerHTML
-            // }
             // Za likes
             function first() {
                 for(var i=1; i<7;i++)
@@ -314,6 +310,7 @@
             }
         </script>
         <script>
+            //Navigacija
             $(document).ready(function(){
                 $("#bh").click(function(){
                     $(".slika").hide()
@@ -348,51 +345,6 @@
             <button id="bc" class = "poz4">Contacts</button>
         </div>
 
-        <!-- <div id = "main" class = "slika">
-            
-            <img class ="prva" src = "jas.jpg" width ="250em" height ="250em"
-            alt = "Fali slika">
-                <h1>I am Jovan Jovanovski and welcome to my website!</h1><br>
-                <h2 class="l1">Education</h2>
-            <ul>
-                <li class ="l">High School: "SOU Josip Broz Tito" - Bitola</li>
-                <li class ="l">Faculty of Electrical Engineering and Information Technology
-                    <ul>
-                        &emsp;Computer Hardware and Electroncs Engineer 4th Year
-                    </ul></li>
-            </ul><br>
-            <h2 class="l">Work Experience</h2>
-            <ul>
-                <li class ="l1">Game Story Writer<br>
-                    <ul>
-                        <p class="l3">I was part of a small team, which was designing two video games.<br>
-                        One sigleplayer and one multiplayer one. I was tasked with making up a story and lore rich worlds.<br>
-                        Sadly the team seprated adn the games were left unfinished.</p>
-                    </ul></li>
-                <li class ="l1">Internship at The Institute of Electronics<br>
-                    <ul>
-                        <p class="l3">I was part of a group of students and we were tasked to design<br>
-                        all sorts of mostly analogue and some digital electronics at my college.<br></p>
-                    </ul>
-                </li>
-                <li class ="l1">Internship at Aptiv
-                    <ul>
-                        <p class="l3">I am currently attending an internship at Aptiv. Aptiv desings and manifactures<br>
-                        electronic components for cars. I am following an End of Line Test Engineer and he explains to me<br>
-                        the various problems he is solving. In the meantime I am developing an Excel vba program for them,<br>
-                        which takes data from a server and puts it in sheets and does various calculations.</p>
-                    </ul>
-                </li>
-            </ul>
-            <h2 class="l">Creative Activity</h2>
-            <p class="cl">In my spare time I like to write short stories.<br>
-            They vary between settings, but are connected through a theme.<br>
-            The common theme is war and how a group of people get around it.<br>
-            Here is one of my stories.</p>
-            <a href="A small spaceship's last mission.docx" download="A small spaceship's last mission">
-                <img class = "push" src="word.jpg" with="50px" height="50px" title="A Small Spaceship's Last Mission">
-            </a>
-        </div> -->
         <div id = "homepage" class = "slika">
             
             <img class ="prva" src = "jas.jpg" width ="250em" height ="250em"
@@ -486,7 +438,7 @@
             <input class="t" type='button' value="Search" onclick="search()">
             <input id="ser" class="t" type='text' placeholder="Search by Hashtag">
             <form class="g">
-
+                <div>
                 <p name="searc" class = "yes">
                     <img class="s" src ="nat.jpg" height="400vh" width = "400vw">
                 </p><br><br>
@@ -503,7 +455,7 @@
                     <input id="com1" class="g" type="text" placeholder="Leave a comment!">
                     <input class="inp" onclick="komentar('com1', 'pt1', '0')" type="button" value="Comment">
                 </p><br>
-                <p name="searc" id="pt1" class="g3"></p><br><!--9 ako e od 0-9-->
+                <p name="searc" id="pt1" class="g3"></p><br></div>
 
 
 
