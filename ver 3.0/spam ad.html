@@ -84,38 +84,43 @@
                     {
                         if(curV.indexOf("<p") != -1)
                         {
-                            document.getElementById("b"+i).innerHTML = curV.slice(0, -21);
+                            $("#b"+ i +" p:first").remove();
                         }
                     }
                 }
                 x=document.getElementById("exp").value;
+                curV = document.getElementById("expire").innerHTML;
                 if(x=="--/--")
                 {
-                    curV = document.getElementById("expire").innerHTML;
-                    curV = curV + "<p class='novo'>*</p>";
-                    document.getElementById("b"+i).innerHTML=curV;
+                    if(curV.indexOf("<p",0) == -1){
+                        curV = curV + "<p class='novo'>*</p>";
+                        document.getElementById("expire").innerHTML=curV;
+                    }
                     count += 1;
                 }
                 else
                     {
                         if(curV.indexOf("<p") != -1)
                         {
-                            document.getElementById("expire").innerHTML = curV.slice(0, -21);
+                            // document.getElementById("expire").innerHTML = curV.slice(0, -21);
+                            $("#expire p:first").remove();
                         }
                     }
                 
                 x=document.getElementById("ck").value;
+                curV = document.getElementById("prov").innerHTML;
                 if(!document.getElementById("ck").checked){
                     count += 1;
-                    curV = document.getElementById("prov").innerHTML;
-                    curV = curV + "<p class='novo'>*</p>";
-                    document.getElementById("b"+i).innerHTML=curV;
+                    if(curV.indexOf("<p",0) == -1){
+                        curV = curV + "<p class='novo'>*</p>";
+                        document.getElementById("prov").innerHTML=curV;
+                    }
                 }
                 else
                     {
-                        if(curV.indexOf("<p") != -1)
+                        if(curV.indexOf("*") != -1)
                         {
-                            document.getElementById("ck").innerHTML = curV.slice(0, -21);
+                            document.getElementById("prov").innerHTML = curV.slice(0, -21);
                         }
                     }
                 if (count == 0)
