@@ -3,6 +3,7 @@
     <head>
         <meta charset = "utf-8">
         <title>Congratulations</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <style type = "text/css">
         a:visited{color:violet;}
         body { height: 100%; width: 100%; margin: 0;
@@ -68,15 +69,23 @@
                 for (var i=1; i<9; i++)
                 {
                     var x=document.getElementById("a"+i).value;
+                    var curV = document.getElementById("b"+i).innerHTML;
                     if(x==null || x=="")
                     {
-                        var curV = document.getElementById("b"+i).innerHTML;
                         if(curV.indexOf("<p",0) == -1)
                         {
                             curV = curV + "<p class='novo'>*</p>";
                             document.getElementById("b"+i).innerHTML=curV;
                         }
                         count += 1;
+
+                    }
+                    else
+                    {
+                        if(curV.indexOf("<p") != -1)
+                        {
+                            document.getElementById("b"+i).innerHTML = curV.slice(0, -21);
+                        }
                     }
                 }
                 x=document.getElementById("exp").value;
@@ -87,6 +96,14 @@
                     document.getElementById("b"+i).innerHTML=curV;
                     count += 1;
                 }
+                else
+                    {
+                        if(curV.indexOf("<p") != -1)
+                        {
+                            document.getElementById("expire").innerHTML = curV.slice(0, -21);
+                        }
+                    }
+                
                 x=document.getElementById("ck").value;
                 if(!document.getElementById("ck").checked){
                     count += 1;
@@ -94,6 +111,13 @@
                     curV = curV + "<p class='novo'>*</p>";
                     document.getElementById("b"+i).innerHTML=curV;
                 }
+                else
+                    {
+                        if(curV.indexOf("<p") != -1)
+                        {
+                            document.getElementById("ck").innerHTML = curV.slice(0, -21);
+                        }
+                    }
                 if (count == 0)
                 {
                     alert("CONGRATULATIONS!!!");

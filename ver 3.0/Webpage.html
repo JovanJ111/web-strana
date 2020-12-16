@@ -177,7 +177,8 @@
             border: 3px solid black;
             text-align: right;
         }
-        .kelii{font-size: 80%;}
+        .kelii{font-size: 120%;}
+        .rep{font-size: 100%;}
         p.hash{position: relative;
         left:27.3vw;}
 
@@ -203,69 +204,31 @@
             text-align: center;
             font-size: 200%;
         }
-
         </style>
+
         <script>
-            // Za likes
+            // Loading likes and comments
             function first() {
                 for(var i=1; i<7;i++)
                 {
-                    document.getElementById('dv'+i).innerHTML = localStorage.getItem('likes'+i);
+                    $("#dv"+i).text(localStorage.getItem('likes'+i));
                 }
-                var buttons=document.getElementsByClassName("g1");
+                var buttons=$(".g1");
                 for(var b=0;b<buttons.length+1;b++)
                 {
-                    buttons[b].style.background="url('empty.png')";
-
+                    $(".g1").eq(b).css("background", "url(empty.png)");
                 }
             }
 
-            function likes(buttonID, divID, br) {
+            function likes(buttonID, divID, br) { //Za broenje likes
                 var cValue= localStorage.getItem('likes'+br) ? parseInt(localStorage.getItem('likes'+br)) : 0;
                 var nValue = cValue + 1;
                 localStorage.setItem('likes'+br, nValue);
-                document.getElementById(divID).innerHTML = localStorage.getItem('likes'+br);
-                
-                var buttons=document.getElementsByClassName("g1");
-                buttons[br-1].style.background="url('full.png')";   
+                $("#"+divID).text(localStorage.getItem('likes'+br));
+                var buttons=$(".g1");
+                $(".g1").eq(br-1).css("background", "url('full.png')");
             }
-            //Za komentari
-            // var kom_count = new Array();
-            // for(i=0; i<6; i++){
-            //     kom_count[i]=1;
-            // }
-            // function komentar(com, pt, count){
-            //     var inputV=document.getElementById(com).value;
-            //     var post=document.getElementById(pt).innerHTML;
-            //     if(post == "")
-            //     {
-            //         post =inputV + "<br>" + "<p id='" + kom_count[count] + "' class='kelii'>" + "</p>";
-            //     }
-            //     else
-            //     {
-            //         post = post + inputV + "<br>" + "<p id='" + kom_count[count] + "' class='kelii'>" + "</p>";
-            //     }
-            //     post = post + "<input id='" + kom_count[count] + kom_count[count] + "' type='text'>";
-            //     post = post + "<input type='button' value='Reply' onclick='reply(" + kom_count[count] + "," + kom_count[count] + kom_count[count] + ")'><br>";
-            //     kom_count[count] += 1;
-            //     document.getElementById(pt).innerHTML=post;
-            // }
-            // function reply(broj, inputbr) {
-            //     var inputR = document.getElementById(inputbr).value;
-            //     var postR = document.getElementById(broj).innerHTML;
-            //     if(postR == "")
-            //     {
-            //         postR = inputR;
-            //     }
-            //     else
-            //     {
-            //         postR = postR + inputR;
-            //     }
-            //     postR = "<p>" + postR + "</p>";
-            //     document.getElementById(broj).innerHTML=postR;
-            // }
-        </script>
-        <script>
+
             //Navigacija
             $(document).ready(function(){
                 $("#bh").click(function(){
@@ -301,35 +264,22 @@
                     $("div .g").show();
                 });
             });
+            //komentari
             var kom_count =[0,0,0,0,0,0];
             var cn = 0;
-            function komentar(com, pt, count, i){
+            function komentar(com, pt, count){
                     var inputV=$("#" + com + "").val();
                     $("#" + pt + "").append("<p id='" + kom_count[count] + "' class='kelii'>"+inputV+"</p>");
                     var novo = "ddd"+cn;
                     $("#" + pt + "").append("<input id='" + novo + "' type='text'>");
-                    $("#" + pt + "").append("<input type='button' value='Reply' onclick='reply(" + kom_count[count] + "," + '"'+novo+ '"' + ")'>");
+                    $("#" + pt + "").append("<input type='button' value='Reply' onclick='reply(" + kom_count[count] + "," + '"'+novo+ '"' + "," + cn + ")'>");
                     kom_count[count] += 1;
                     cn += 1;
                 }
-                function reply(broj, inputbr, i) {
-                // var inputR = document.getElementById(inputbr).value;
-                // var inputR = $("div #1 input #"+inputbr+"").val();
-                alert(inputbr);    
+            //replies
+            function reply(broj, inputbr, i) { 
                 var inputR = $("#"+inputbr).val();
-                alert(inputR);
-                // var postR = document.getElementById(broj).innerHTML;
-                // if(postR == "")
-                // {
-                //     postR = inputR;
-                // }
-                // else
-                // {
-                //     postR = postR + inputR;
-                // }
-                // postR = "<p>" + postR + "</p>";
-                // document.getElementById(broj).innerHTML=postR;
-                $("div #0 p #"+broj).append("<p>" + inputR + "</p>");
+                $("p .kelii").eq(i).after("<p class='rep'>" + inputR + "</p>");
             }
         </script>
     </head>
@@ -458,7 +408,7 @@
 
 
 
-                <div id="1" class="g">
+                <div class="g">
                 <p name="searc" class = "yes">
                     <img class="s" src = "sushi.jpg" height="400vh" width = "400vw">
                 </p><br><br>
@@ -479,7 +429,7 @@
 
 
 
-                <div id="2" class="g">
+                <div class="g">
                 <p name="searc" class = "yes">
                     <img class="s" src="jas.jpg" height="400vh" width = "400vw">
                 </p><br><br>
@@ -500,7 +450,7 @@
 
 
 
-                <div id="3" class="g">
+                <div class="g">
                 <p name="searc" class = "yes">
                     <img class="s" src ="steam.jpg" height="400vh" width = "400vw">
                 </p><br><br>
@@ -520,7 +470,7 @@
                 <p name="searc" id="pt4" class="g3"></p><br></div>
 
 
-                <div id="4" class="g">
+                <div class="g">
                 <p name="searc" class = "yes">
                     <img class="s" src = "BoW.png" height="400vh" width = "400vw">
                 </p><br><br>
@@ -541,7 +491,7 @@
 
 
 
-                <div id="5" class="g">
+                <div class="g">
                 <p name="searc" class = "yes">
                     <img class="s" src="advt.png" height="400vh" width = "400vw">
                 </p><br><br>
