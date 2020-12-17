@@ -315,29 +315,44 @@
             }
 
             //forum
-            var brojach = 0;
+            // var brojach =0;
+            // localStorage.setItem('brojach', brojach);
+            var brojach;
             $(document).ready(function(){
+                brojach = localStorage.getItem('brojach') ? parseInt(localStorage.getItem('brojach')) : 0;
+                if(brojach != 0)
+                {
+                    $("#posts").append(localStorage.getItem('post'));
+                }
                 $(".sub").click(function(){
                     var datum = Date();
                     datum = datum.slice(0, -42);
                     var user = $("#ime").val();
                     var title = $("#title").val();
                     var text = $("#text").val();
-                    // if(text == "")
-                    // {
-                    //     alert("You have to enter a story!");
-                    // }
-                    if(user == "")
+                    if(text == "")
                     {
-                        user = "Anonymous"
+                        alert("You have to enter a story!");
                     }
-                    $("#posts").append("<fieldset id='tes'><legend>"+title+"</legend></fieldset>");
-                    $("#tes").append("<p>"+user+"</p>");
-                    $("#tes").append("<p class='cent'>"+text+"</p>");
-                    $("#tes").append("<p class='lef'>"+datum+"</p>")
-                    $("#ime").val("");
-                    $("#title").val("");
-                    $("#text").val("");
+                    else
+                    {
+                        if(user == "")
+                        {
+                            user = "Anonymous";
+                        }
+                        $("#posts").append("<fieldset id='tes"+brojach+"'><legend>"+user+"</legend></fieldset>");
+                        $("#tes"+brojach).append("<p>"+title+"</p>");
+                        $("#tes"+brojach).append("<p class='cent'>"+text+"</p>");
+                        $("#tes"+brojach).append("<p class='lef'>"+datum+"</p>");
+                        $("#ime").val("");
+                        $("#title").val("");
+                        $("#text").val("");
+                        var strin = document.getElementById('posts').innerHTML;
+                        strin = strin.slice(40, strin.length);
+                        localStorage.setItem('post', strin);
+                        brojach += 1;
+                        localStorage.setItem('brojach', brojach);
+                    }
                 });
             });
         </script>
