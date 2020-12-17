@@ -227,11 +227,13 @@
         </style>
 
         <script>
-            // Loading likes
+            // Loading likes and comments
             function first() {
                 for(var i=1; i<7;i++)
                 {
                     $("#dv"+i).text(localStorage.getItem('likes'+i));
+                    var j = i - 1;
+                    document.getElementById('pt'+i).innerHTML = localStorage.getItem('kom'+j);
                 }
                 var buttons=$(".g1");
                 for(var b=0;b<buttons.length+1;b++)
@@ -303,16 +305,18 @@
                     $("#" + pt + "").append("<p id='" + kom_count[count] + "' class='kelii'>"+inputV+"</p>");
                     var novo = "ddd"+cn;
                     $("#" + pt + "").append("<input id='" + novo + "' type='text' placeholder='Leave a reply!'>");
-                    $("#" + pt + "").append("<input type='button' value='Reply' onclick='reply(" + kom_count[count] + "," + '"'+novo+ '"' + "," + cn + ")'>");
+                    $("#" + pt + "").append("<input type='button' value='Reply' onclick='reply(" + count + "," + '"'+novo+ '"' + "," + cn +","+pt+ ")'>");
                     kom_count[count] += 1;
                     cn += 1;
                     $("#" + com).val("");
+                    localStorage.setItem('kom'+count, document.getElementById(pt).innerHTML);
                 }
             //replies
-            function reply(broj, inputbr, i) { 
+            function reply(broj, inputbr, i,pt) { 
                 var inputR = $("#"+inputbr).val();
                 $("p .kelii").eq(i).after("<p class='rep'>" + inputR + "</p>");
                 $("#"+inputbr).val("");
+                localStorage.setItem('kom'+broj, document.getElementById(pt).innerHTML);
             }
 
             //forum
@@ -364,7 +368,7 @@
             <button id="bh" class ="poz">Homepage</button>
             <button id ="bi" class ="poz1">Interests</button>
             <button id="bg" class ="poz2" onclick="first()">Gallery</button>
-            <button id="bb" class = "poz3">Blog</button>
+            <button id="bb" class = "poz3">Forum</button>
             <button id="bc" class = "poz4">Contacts</button>
         </div>
 
@@ -414,14 +418,6 @@
             </a>
         </div>
 
-
-
-
-
-
-
-
-
         <div id = "blog" class = "slika" style = "display:none">
             <br><fieldset>
                 <legend class="big">Forum</legend>
@@ -439,22 +435,6 @@
                 <legend>Posts</legend>
             </fieldset>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <div id = "galerija" class = "slika" style = "display:none">
             <h1>Gallery</h1><br><br>
