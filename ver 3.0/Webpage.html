@@ -211,7 +211,18 @@
         height:20vh;
         font-size: 130%;}
         input.size{font-size: 110%;}
+        input.size1{font-size: 110%;
+        position:relative;
+        left: 2.6vw;
+        }
         label.size{font-size: 120%;}
+        input.sub{
+            width:5vw;
+            height:3.5vh;
+            font-size: 110%;
+        }
+        p.cent{text-align: center;}
+        p.lef{text-align: right;}
         </style>
 
         <script>
@@ -292,6 +303,29 @@
                 $("p .kelii").eq(i).after("<p class='rep'>" + inputR + "</p>");
                 $("#"+inputbr).val("");
             }
+
+            //forum
+            $(document).ready(function(){
+                $(".sub").click(function(){
+                    var datum = Date();
+                    datum = datum.slice(0, -42);
+                    var user = $("#ime").val();
+                    var title = $("#title").val();
+                    var text = $("#text").val();
+                    // if(text == "")
+                    // {
+                    //     alert("You have to enter a story!");
+                    // }
+                    if(user == "")
+                    {
+                        user = "Anonymous"
+                    }
+                    $("#posts").append("<fieldset id='tes'><legend>"+title+"</legend></fieldset>");
+                    $("#tes").append("<p>"+user+"</p>");
+                    $("#tes").append("<p class='cent'>"+text+"</p>");
+                    $("#tes").append("<p class='lef'>"+datum+"</p>")
+                });
+            });
         </script>
     </head>
 
@@ -363,10 +397,16 @@
                 <legend class="big">Forum</legend>
                 <form>
                     <label class="size">Username:</label>
-                    <input class="size" type="text" placeholder="Enter your username"><br><br><br>
+                    <input id="ime" class="size" type="text" placeholder="Enter your username"><br><br>
+                    <label class="size">Title:</label>
+                    <input id="title" class="size1" type="text" placeholder="Enter your title"><br><br>
                     <label class="size">Your story:</label><br><br>
-                    <textarea class="size" placeholder="Your thoughts"></textarea>
+                    <textarea id="text" class="size" placeholder="Your story"></textarea><br><br>
                 </form>
+                <input class="sub" value="Post" type="submit">
+            </fieldset>
+            <fieldset id="posts">
+                <legend>Posts</legend>
             </fieldset>
         </div>
 
