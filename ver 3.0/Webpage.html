@@ -238,14 +238,24 @@
                     $(".g1").eq(b).css("background", "url(empty.png)");
                 }
             }
-
+            var lajk = [0,0,0,0,0,0];
             function likes(buttonID, divID, br) { //Za broenje likes
                 var cValue= localStorage.getItem('likes'+br) ? parseInt(localStorage.getItem('likes'+br)) : 0;
-                var nValue = cValue + 1;
+                if(lajk[br-1] == 0)
+                {
+                    var nValue = cValue + 1;
+                    lajk[br-1] = 1;
+                    $(".g1").eq(br-1).css("background", "url('full.png')");
+                }
+                else
+                {
+                    var nValue = cValue - 1;
+                    lajk[br-1] = 0;
+                    $(".g1").eq(br-1).css("background", "url('empty.png')");
+                }
                 localStorage.setItem('likes'+br, nValue);
                 $("#"+divID).text(localStorage.getItem('likes'+br));
-                var buttons=$(".g1");
-                $(".g1").eq(br-1).css("background", "url('full.png')");
+                // var buttons=$(".g1");
             }
             //Navigacija
             $(document).ready(function(){
@@ -305,6 +315,7 @@
             }
 
             //forum
+            var brojach = 0;
             $(document).ready(function(){
                 $(".sub").click(function(){
                     var datum = Date();
@@ -324,6 +335,9 @@
                     $("#tes").append("<p>"+user+"</p>");
                     $("#tes").append("<p class='cent'>"+text+"</p>");
                     $("#tes").append("<p class='lef'>"+datum+"</p>")
+                    $("#ime").val("");
+                    $("#title").val("");
+                    $("#text").val("");
                 });
             });
         </script>
@@ -443,7 +457,7 @@
                     <p id="dv1" class = "t"></p>
                 </p>
                 <p name="searc" class="yes">
-                    <button id="btn1" class="g1" type="button" onclick="likes('btn1','dv1', '1'), this.disabled=true"></button>
+                    <button id="btn1" class="g1" type="button" onclick="likes('btn1','dv1', 1)"></button>
                 </p>
                 <p name="searc" class="yes">
                     <input id="com1" class="g" type="text" placeholder="Leave a comment!">
@@ -464,7 +478,7 @@
                     <p id="dv2" class = "t"></p>
                 </p>
                 <p name="searc" class="yes">
-                    <button id="btn2" class="g1" type="button" onclick="likes('btn2','dv2', '2'), this.disabled=true"></button>
+                    <button id="btn2" class="g1" type="button" onclick="likes('btn2','dv2', 2)"></button>
                 </p>
                 <p name="searc" class="yes">
                     <input id="com2" class="g" type="text" placeholder="Leave a comment!">
@@ -485,7 +499,7 @@
                     <p id="dv3" class = "t"></p>
                 </p>
                 <p name="searc" class="yes">
-                    <button id="btn3" class="g1" type="button" onclick="likes('btn3','dv3', '3'), this.disabled=true"></button>
+                    <button id="btn3" class="g1" type="button" onclick="likes('btn3','dv3', 3)"></button>
                 </p>
                 <p name="searc" class="yes">
                     <input id="com3" class="g" type="text" placeholder="Leave a comment!">
@@ -506,7 +520,7 @@
                     <p id="dv4" class = "t"></p>
                 </p>
                 <p name="searc" class="yes">
-                    <button id="btn4" class="g1" type="button" onclick="likes('btn4','dv4', '4'), this.disabled=true"></button>
+                    <button id="btn4" class="g1" type="button" onclick="likes('btn4','dv4', 4)"></button>
                 </p>
                 <p name="searc" class="yes">
                     <input id="com4" class="g" type="text" placeholder="Leave a comment!">
@@ -526,7 +540,7 @@
                     <p id="dv5" class = "t"></p>
                 </p>
                 <p name="searc" class="yes">
-                    <button id="btn5" class="g1" type="button" onclick="likes('btn5','dv5', '5'), this.disabled=true"></button>
+                    <button id="btn5" class="g1" type="button" onclick="likes('btn5','dv5', 5)"></button>
                 </p>
                 <p name="searc" class="yes">
                     <input id="com5" class="g" type="text" placeholder="Leave a comment!">
@@ -547,7 +561,7 @@
                     <p id="dv6" class = "t"></p>
                 </p>
                 <p name="searc" class="yes">
-                    <button id="btn6" class="g1" type="button" onclick="likes('btn6','dv6', '6'), this.disabled=true"></button>
+                    <button id="btn6" class="g1" type="button" onclick="likes('btn6','dv6', 6)"></button>
                 </p>
                 <p name="searc" class="yes">
                     <input id="com6" class="g" type="text" placeholder="Leave a comment!">
